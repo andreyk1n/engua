@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Present Perfect — Grammar — ENGUA</title>
+<meta name="description" content="Present Perfect: пояснення, структура, приклади, вживання та типові помилки. Практикуйте одразу після конспекту.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+
+/* =========================================================
+   base/_variables.scss (той самий токен-набір проєкту)
+========================================================= */
+:root{
+  --paper:#eef3ef;
+  --paper-line:#d7e1da;
+  --surface:#ffffff;
+  --ink:#1c2b2a;
+  --ink-soft:#4b5c58;
+  --accent:#2f6f5e;
+  --accent-dark:#1f4d41;
+  --accent-warm:#e2a83d;
+  --accent-warm-dark:#b9862a;
+  --danger:#d96c58;
+  --danger-bg:#fbeeeb;
+  --success-bg:#eaf3ee;
+  --border:#d7e1da;
+  --radius-s:6px;
+  --radius-m:12px;
+  --radius-l:22px;
+  --shadow-card:0 1px 0 rgba(28,43,42,.04), 0 12px 24px -16px rgba(28,43,42,.18);
+  --shadow-tag:0 6px 14px -6px rgba(28,43,42,.28);
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Inter', -apple-system, sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+  --container:1200px;
+  --header-h:76px;
+  --transition:.2s ease;
+}
+[data-theme="dark"]{
+  --paper:#141c1b;
+  --paper-line:#233029;
+  --surface:#1b2523;
+  --ink:#eef3ef;
+  --ink-soft:#a9b8b3;
+  --accent:#5fb79b;
+  --accent-dark:#8fd6bd;
+  --accent-warm:#f0c169;
+  --accent-warm-dark:#f0c169;
+  --danger:#e88875;
+  --danger-bg:#2c1c1a;
+  --success-bg:#17251f;
+  --border:#2a3733;
+  --shadow-card:0 1px 0 rgba(0,0,0,.2), 0 12px 24px -16px rgba(0,0,0,.55);
+  --shadow-tag:0 8px 16px -6px rgba(0,0,0,.55);
+}
+
+/* =========================================================
+   base/_reset.scss
+========================================================= */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+ul{ list-style:none; }
+h1,h2,h3{ font-family:var(--font-display); font-weight:600; line-height:1.2; }
+:focus-visible{ outline:2px solid var(--accent-warm); outline-offset:3px; border-radius:4px; }
+
+.container{ width:100%; max-width:var(--container); margin-inline:auto; padding-inline:20px; }
+.section-eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--accent);
+}
+.section-eyebrow::before{ content:""; width:16px; height:2px; background:var(--accent-warm); display:inline-block; }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:14px 26px; border-radius:999px; font-weight:600; font-size:15px;
+  border:1.5px solid transparent; transition:transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+  white-space:nowrap;
+}
+.btn:active{ transform:translateY(1px); }
+.btn--primary{ background:var(--ink); color:var(--paper); }
+[data-theme="dark"] .btn--primary{ background:var(--accent); color:#0d1614; }
+.btn--primary:hover{ background:var(--accent-dark); color:#fff; }
+.btn--ghost{ background:transparent; border-color:var(--border); color:var(--ink); }
+.btn--ghost:hover{ border-color:var(--ink); }
+.btn--small{ padding:9px 16px; font-size:13px; }
+
+/* =========================================================
+   layout/_header.scss
+========================================================= */
+.header{
+  position:sticky; top:0; z-index:100; height:var(--header-h);
+  display:flex; flex-direction:column; justify-content:center;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--border);
+}
+.header__inner{
+  width:100%; max-width:var(--container); margin-inline:auto; padding-inline:20px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.header__logo{ display:flex; align-items:baseline; gap:2px; font-family:var(--font-display); font-size:24px; font-weight:700; }
+.header__logo-mark{ color:var(--accent); }
+.header__logo-underline{ position:relative; }
+.header__logo-underline::after{ content:""; position:absolute; left:2px; right:2px; bottom:-4px; height:5px; background:var(--accent-warm); border-radius:3px; z-index:-1; opacity:.55; }
+.header__nav{ flex:1; display:flex; justify-content:center; }
+.header__nav-list{ display:flex; align-items:center; gap:4px; }
+.header__nav-link{ padding:10px 14px; font-size:14.5px; font-weight:500; color:var(--ink-soft); border-radius:var(--radius-s); }
+.header__nav-link:hover{ color:var(--ink); background:var(--surface); }
+.header__nav-link--active{ color:var(--ink); font-weight:600; }
+.header__actions{ display:flex; align-items:center; gap:10px; }
+@media (max-width:1023px){ .header__nav{ display:none; } }
+
+.header__reading-track{ height:3px; background:var(--paper-line); }
+.header__reading-fill{ height:100%; width:38%; background:var(--accent-warm); }
+
+/* =========================================================
+   sections/_breadcrumbs.scss
+========================================================= */
+.breadcrumbs{ padding:22px 0 0; }
+.breadcrumbs__list{ display:flex; align-items:center; flex-wrap:wrap; gap:6px; font-size:13px; color:var(--ink-soft); }
+.breadcrumbs__link:hover{ color:var(--accent-dark); }
+[data-theme="dark"] .breadcrumbs__link:hover{ color:var(--accent); }
+.breadcrumbs__sep{ opacity:.5; }
+.breadcrumbs__current{ color:var(--ink); font-weight:600; }
+
+/* =========================================================
+   sections/_topic-header.scss
+========================================================= */
+.topic-header{ padding:22px 0 40px; }
+.topic-header__top{ display:flex; align-items:flex-start; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+.topic-header__badges{ display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+.topic-header__badge{
+  font-family:var(--font-mono); font-size:11.5px; font-weight:600; letter-spacing:.03em;
+  padding:5px 11px; border-radius:999px; background:var(--surface); border:1px solid var(--border); color:var(--ink-soft);
+}
+.topic-header__badge--level{ background:var(--accent-warm); border-color:var(--accent-warm-dark); color:#402c07; }
+.topic-header__title{ font-size:clamp(2rem,4.4vw,2.9rem); margin-bottom:14px; max-width:16ch; }
+.topic-header__lead{ color:var(--ink-soft); font-size:16px; max-width:56ch; }
+
+.topic-header__actions{ display:flex; gap:10px; flex-shrink:0; }
+.topic-header__icon-btn{
+  width:42px; height:42px; border-radius:50%; border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center; color:var(--ink-soft);
+}
+.topic-header__icon-btn:hover{ color:var(--ink); border-color:var(--ink); }
+
+.topic-header__meta{
+  display:flex; gap:24px; flex-wrap:wrap; margin-top:26px; padding-top:22px; border-top:1px solid var(--border);
+}
+.topic-header__meta-item{ display:flex; align-items:center; gap:8px; font-size:13.5px; color:var(--ink-soft); }
+.topic-header__meta-item svg{ color:var(--accent-dark); flex-shrink:0; }
+[data-theme="dark"] .topic-header__meta-item svg{ color:var(--accent); }
+
+/* =========================================================
+   layout/_topic-layout.scss  (сайдбар TOC + контент)
+========================================================= */
+.topic-layout{ padding-bottom:100px; }
+.topic-layout__grid{
+  display:grid; grid-template-columns:220px 1fr; gap:56px; align-items:start;
+}
+
+.topic-toc{ position:sticky; top:calc(var(--header-h) + 24px); }
+.topic-toc__title{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:14px; }
+.topic-toc__list{ display:flex; flex-direction:column; border-left:2px solid var(--border); }
+.topic-toc__link{
+  padding:8px 0 8px 16px; font-size:13.5px; color:var(--ink-soft); border-left:2px solid transparent; margin-left:-2px;
+}
+.topic-toc__link:hover{ color:var(--ink); }
+.topic-toc__link--active{ color:var(--ink); font-weight:600; border-left-color:var(--accent); }
+.topic-toc__practice-btn{ margin-top:20px; }
+
+@media (max-width:1023px){
+  .topic-layout__grid{ grid-template-columns:1fr; }
+  .topic-toc{ position:static; }
+  .topic-toc__list{
+    flex-direction:row; overflow-x:auto; border-left:none; border-bottom:1px solid var(--border);
+    padding-bottom:2px; gap:4px;
+  }
+  .topic-toc__link{ padding:8px 14px; border-left:none; border-bottom:2px solid transparent; white-space:nowrap; margin:0; }
+  .topic-toc__link--active{ border-left:none; border-bottom-color:var(--accent); }
+  .topic-toc__practice-btn{ display:none; }
+}
+
+/* =========================================================
+   sections/_topic-article.scss  (основний контент конспекту)
+========================================================= */
+.topic-article__section{ padding-top:52px; scroll-margin-top:calc(var(--header-h) + 16px); }
+.topic-article__section:first-child{ padding-top:0; }
+.topic-article__section + .topic-article__section{ border-top:1px solid var(--border); }
+
+.topic-article__section-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:18px; }
+.topic-article__section-number{ font-family:var(--font-mono); font-size:13px; color:var(--accent-dark); }
+[data-theme="dark"] .topic-article__section-number{ color:var(--accent); }
+.topic-article__section-title{ font-size:22px; }
+
+.topic-article__p{ font-size:15.5px; color:var(--ink); max-width:68ch; margin-bottom:16px; }
+.topic-article__p:last-child{ margin-bottom:0; }
+.topic-article__p em{ font-style:normal; background:linear-gradient(to bottom, transparent 60%, var(--accent-warm) 60%); opacity:.95; }
+
+/* --- diagram / image --- */
+.topic-article__figure{ margin:26px 0 30px; }
+.topic-article__diagram{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-m);
+  padding:28px 24px 20px;
+}
+.topic-article__figcaption{ margin-top:10px; font-size:12.5px; color:var(--ink-soft); text-align:center; }
+
+/* --- structure formula box --- */
+.topic-article__structure{
+  background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent);
+  border-radius:var(--radius-m); padding:22px 26px; margin-bottom:18px;
+}
+.topic-article__structure-label{ font-family:var(--font-mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; display:block; }
+.topic-article__structure-formula{ font-family:var(--font-mono); font-size:18px; font-weight:600; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.topic-article__structure-formula span{ padding:4px 10px; border-radius:var(--radius-s); background:var(--paper); }
+.topic-article__structure-formula .is-fixed{ background:transparent; padding:4px 2px; color:var(--ink-soft); font-weight:500; }
+.topic-article__structure-formula .is-variable{ color:var(--accent-dark); }
+[data-theme="dark"] .topic-article__structure-formula .is-variable{ color:var(--accent); }
+
+/* --- examples --- */
+.topic-article__examples{ display:flex; flex-direction:column; gap:2px; margin-bottom:6px; }
+.topic-article__example{
+  display:flex; align-items:center; gap:14px; padding:14px 0;
+  border-bottom:1px dashed var(--border);
+}
+.topic-article__example:last-child{ border-bottom:none; }
+.topic-article__example-play{
+  width:32px; height:32px; border-radius:50%; border:1px solid var(--border); flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; color:var(--ink-soft);
+}
+.topic-article__example-play:hover{ color:var(--accent-dark); border-color:var(--accent); }
+.topic-article__example-text{ flex:1; }
+.topic-article__example-en{ font-size:15px; font-weight:500; }
+.topic-article__example-en b{ color:var(--accent-dark); font-weight:700; }
+[data-theme="dark"] .topic-article__example-en b{ color:var(--accent); }
+.topic-article__example-ua{ font-size:13px; color:var(--ink-soft); }
+
+/* --- usage list --- */
+.topic-article__usage{ display:flex; flex-direction:column; gap:14px; }
+.topic-article__usage-item{ display:flex; gap:14px; }
+.topic-article__usage-icon{
+  width:30px; height:30px; border-radius:var(--radius-s); background:var(--surface); border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--accent-dark);
+}
+[data-theme="dark"] .topic-article__usage-icon{ color:var(--accent); }
+.topic-article__usage-title{ font-size:14.5px; font-weight:600; margin-bottom:2px; }
+.topic-article__usage-text{ font-size:13.5px; color:var(--ink-soft); }
+
+/* --- common mistakes comparison --- */
+.topic-mistakes{ display:flex; flex-direction:column; gap:12px; }
+.topic-mistake{
+  display:grid; grid-template-columns:1fr 1fr; gap:1px;
+  background:var(--border); border-radius:var(--radius-m); overflow:hidden;
+}
+.topic-mistake__side{ background:var(--surface); padding:14px 18px; display:flex; align-items:center; gap:10px; }
+.topic-mistake__side--wrong{ background:var(--danger-bg); }
+.topic-mistake__side--right{ background:var(--success-bg); }
+.topic-mistake__mark{ flex-shrink:0; }
+.topic-mistake__side--wrong .topic-mistake__mark{ color:var(--danger); }
+.topic-mistake__side--right .topic-mistake__mark{ color:var(--accent-dark); }
+[data-theme="dark"] .topic-mistake__side--right .topic-mistake__mark{ color:var(--accent); }
+.topic-mistake__text{ font-size:14px; }
+.topic-mistake__text del{ text-decoration:none; color:var(--danger); }
+.topic-mistake__text b{ color:var(--accent-dark); font-weight:700; }
+[data-theme="dark"] .topic-mistake__text b{ color:var(--accent); }
+
+@media (max-width:575px){
+  .topic-mistake{ grid-template-columns:1fr; }
+}
+
+/* --- generic data table (irregular verbs example) --- */
+.data-table-wrap{ overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-m); }
+.data-table{ width:100%; border-collapse:collapse; font-size:14px; min-width:520px; }
+.data-table thead th{
+  text-align:left; font-family:var(--font-mono); font-size:11.5px; letter-spacing:.04em; text-transform:uppercase;
+  color:var(--ink-soft); background:var(--paper); padding:12px 16px; border-bottom:1px solid var(--border);
+}
+.data-table tbody td{ padding:13px 16px; border-bottom:1px solid var(--border); }
+.data-table tbody tr:last-child td{ border-bottom:none; }
+.data-table tbody tr:hover{ background:var(--surface); }
+.data-table__en{ font-weight:600; }
+.data-table__ua{ color:var(--ink-soft); }
+
+/* --- practice CTA --- */
+.topic-cta{
+  margin-top:52px; background:var(--ink); color:var(--paper);
+  border-radius:var(--radius-l); padding:36px 40px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+}
+[data-theme="dark"] .topic-cta{ background:var(--surface); border:1px solid var(--border); }
+.topic-cta__title{ font-size:20px; margin-bottom:6px; }
+.topic-cta__text{ color:#c7d3ce; font-size:13.5px; }
+[data-theme="dark"] .topic-cta__text{ color:var(--ink-soft); }
+.topic-cta .btn--primary{ background:var(--accent-warm); color:#402c07; }
+.topic-cta .btn--primary:hover{ background:#f0bb5a; }
+
+/* --- additional resources --- */
+.topic-resources{ margin-top:56px; }
+.topic-resources__title{ font-size:19px; margin-bottom:18px; }
+.topic-resources__grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.topic-resources__card{
+  display:flex; gap:14px; align-items:flex-start; padding:18px; background:var(--surface);
+  border:1px solid var(--border); border-radius:var(--radius-m);
+  transition:border-color var(--transition), transform var(--transition);
+}
+.topic-resources__card:hover{ border-color:var(--accent); transform:translateY(-2px); }
+.topic-resources__icon{
+  width:38px; height:38px; border-radius:var(--radius-s); background:var(--paper);
+  display:flex; align-items:center; justify-content:center; color:var(--accent-dark); flex-shrink:0;
+}
+[data-theme="dark"] .topic-resources__icon{ color:var(--accent); }
+.topic-resources__card-title{ font-size:14.5px; font-weight:700; margin-bottom:3px; }
+.topic-resources__card-text{ font-size:12.5px; color:var(--ink-soft); margin-bottom:6px; }
+.topic-resources__card-link{ font-size:12.5px; font-weight:600; color:var(--accent-dark); }
+[data-theme="dark"] .topic-resources__card-link{ color:var(--accent); }
+
+@media (max-width:575px){ .topic-resources__grid{ grid-template-columns:1fr; } }
+
+/* --- prev/next topic navigation --- */
+.topic-pager{ margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.topic-pager__link{
+  padding:20px 22px; border:1px solid var(--border); border-radius:var(--radius-m); background:var(--surface);
+  display:flex; flex-direction:column; gap:6px; transition:border-color var(--transition);
+}
+.topic-pager__link:hover{ border-color:var(--accent); }
+.topic-pager__link--next{ text-align:right; align-items:flex-end; }
+.topic-pager__label{ font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); }
+.topic-pager__name{ font-size:15px; font-weight:600; }
+
+@media (max-width:575px){ .topic-pager{ grid-template-columns:1fr; } }
+
+/* =========================================================
+   layout/_footer.scss
+========================================================= */
+.footer{ border-top:1px solid var(--border); padding:56px 0 28px; margin-top:40px; }
+.footer__top{ display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:32px; padding-bottom:40px; }
+.footer__brand-logo{ font-family:var(--font-display); font-size:22px; font-weight:700; margin-bottom:10px; }
+.footer__brand-logo span{ color:var(--accent); }
+.footer__brand-text{ color:var(--ink-soft); font-size:14px; max-width:32ch; }
+.footer__col-title{ font-family:var(--font-mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:16px; }
+.footer__col-list{ display:flex; flex-direction:column; gap:10px; }
+.footer__col-link{ font-size:14px; }
+.footer__col-link:hover{ color:var(--accent-dark); }
+[data-theme="dark"] .footer__col-link:hover{ color:var(--accent); }
+.footer__bottom{ border-top:1px solid var(--border); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+.footer__copyright{ font-size:13px; color:var(--ink-soft); }
+@media (max-width:1023px){ .footer__top{ grid-template-columns:1fr 1fr; } }
+@media (max-width:575px){ .footer__top{ grid-template-columns:1fr; } }
+
+</style>
+</head>
+<body data-theme="light">
+
+<!-- =========================================================
+     HEADER (+ тонкий індикатор прогресу читання теми)
+========================================================= -->
+<header class="header">
+  <div class="header__inner">
+    <a href="/" class="header__logo">
+      <span class="header__logo-mark">EN</span><span class="header__logo-underline">GUA</span>
+    </a>
+    <nav class="header__nav" aria-label="Основна навігація">
+      <ul class="header__nav-list">
+        <li><a href="/" class="header__nav-link">Home</a></li>
+        <li><a href="/grammar" class="header__nav-link header__nav-link--active">Grammar</a></li>
+        <li><a href="/vocabulary" class="header__nav-link">Vocabulary</a></li>
+        <li><a href="/reading" class="header__nav-link">Reading</a></li>
+        <li><a href="/exercises" class="header__nav-link">Exercises</a></li>
+        <li><a href="/tests" class="header__nav-link">Tests</a></li>
+      </ul>
+    </nav>
+    <div class="header__actions">
+      <a href="/profile" class="btn btn--ghost btn--small">Profile</a>
+    </div>
+  </div>
+  <div class="header__reading-track"><div class="header__reading-fill"></div></div>
+</header>
+
+<nav class="breadcrumbs" aria-label="Хлібні крихти">
+  <div class="container breadcrumbs__list">
+    <a href="/grammar" class="breadcrumbs__link">Grammar</a>
+    <span class="breadcrumbs__sep">/</span>
+    <a href="/grammar/intermediate" class="breadcrumbs__link">Intermediate</a>
+    <span class="breadcrumbs__sep">/</span>
+    <span class="breadcrumbs__current">Present Perfect</span>
+  </div>
+</nav>
+
+<!-- =========================================================
+     TOPIC HEADER
+========================================================= -->
+<section class="topic-header">
+  <div class="container">
+    <div class="topic-header__top">
+      <div>
+        <div class="topic-header__badges">
+          <span class="topic-header__badge topic-header__badge--level">B1–B2</span>
+          <span class="topic-header__badge">Grammar</span>
+          <span class="topic-header__badge">Tenses</span>
+        </div>
+        <h1 class="topic-header__title">Present Perfect</h1>
+        <p class="topic-header__lead">Час, що з'єднує минуле з теперішнім: результат дії важливіший за момент, коли вона відбулась.</p>
+      </div>
+      <div class="topic-header__actions">
+        <button type="button" class="topic-header__icon-btn" aria-label="Додати в закладки">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 4h12v17l-6-4-6 4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="topic-header__icon-btn" aria-label="Поділитись">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="2.6" stroke="currentColor" stroke-width="1.8"/><circle cx="6" cy="12" r="2.6" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="19" r="2.6" stroke="currentColor" stroke-width="1.8"/><path d="M8.3 10.7 15.7 6.3M8.3 13.3l7.4 4.4" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="topic-header__meta">
+      <span class="topic-header__meta-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        6 min read
+      </span>
+      <span class="topic-header__meta-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/></svg>
+        Practice exercise included
+      </span>
+      <span class="topic-header__meta-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 19V5a2 2 0 0 1 2-2h12a1 1 0 0 1 1 1v14M4 19a2 2 0 0 0 2 2h13M4 19h13" stroke="currentColor" stroke-width="1.8"/></svg>
+        Topic 6 of 17 in Tenses
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     TOPIC LAYOUT: TOC + ARTICLE
+========================================================= -->
+<div class="topic-layout">
+  <div class="container topic-layout__grid">
+
+    <aside class="topic-toc" aria-label="Зміст сторінки">
+      <p class="topic-toc__title">On this page</p>
+      <ul class="topic-toc__list">
+        <li><a href="#explanation" class="topic-toc__link topic-toc__link--active">1. Explanation</a></li>
+        <li><a href="#structure" class="topic-toc__link">2. Structure</a></li>
+        <li><a href="#examples" class="topic-toc__link">3. Examples</a></li>
+        <li><a href="#usage" class="topic-toc__link">4. Usage</a></li>
+        <li><a href="#mistakes" class="topic-toc__link">5. Common mistakes</a></li>
+        <li><a href="#resources" class="topic-toc__link">6. Resources</a></li>
+      </ul>
+      <a href="/exercises/present-perfect" class="btn btn--primary btn--small topic-toc__practice-btn">Practice this topic</a>
+    </aside>
+
+    <article class="topic-article">
+
+      <!-- 1. EXPLANATION -->
+      <section id="explanation" class="topic-article__section">
+        <div class="topic-article__section-head">
+          <span class="topic-article__section-number">01</span>
+          <h2 class="topic-article__section-title">Explanation</h2>
+        </div>
+        <p class="topic-article__p">
+          Present Perfect використовують, коли дія відбулася в невизначений момент у минулому,
+          але її <em>результат</em> має значення саме зараз. Нас не цікавить, коли саме це сталося —
+          важливо, що це вже факт на цей момент.
+        </p>
+        <p class="topic-article__p">
+          Порівняйте з Past Simple: <em>Past Simple</em> розповідає про завершену подію в конкретний
+          момент минулого («Я поїхав до Лондона у 2019»), а <em>Present Perfect</em> зосереджується
+          на зв'язку з теперішнім («Я був у Лондоні» — і цей досвід у мене є зараз).
+        </p>
+
+        <figure class="topic-article__figure">
+          <div class="topic-article__diagram">
+            <svg viewBox="0 0 640 150" width="100%" role="img" aria-labelledby="diagram-title">
+              <title id="diagram-title">Часова діаграма Present Perfect: дія в минулому впливає на теперішнє</title>
+              <line x1="30" y1="75" x2="610" y2="75" stroke="var(--border)" stroke-width="2"/>
+              <circle cx="30" cy="75" r="4" fill="var(--ink-soft)"/>
+              <text x="30" y="105" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink-soft)">Past</text>
+              <circle cx="610" cy="75" r="4" fill="var(--ink-soft)"/>
+              <text x="580" y="105" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink-soft)">Now</text>
+
+              <line x1="180" y1="75" x2="610" y2="75" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="180" cy="75" r="7" fill="var(--accent)"/>
+              <text x="150" y="45" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="var(--ink)">She has lost her keys.</text>
+              <text x="150" y="62" font-family="Inter, sans-serif" font-size="11.5" fill="var(--ink-soft)">action happened</text>
+
+              <circle cx="610" cy="75" r="7" fill="var(--accent-warm)"/>
+              <text x="470" y="130" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="var(--ink)">She still can't get in.</text>
+              <text x="500" y="147" font-family="Inter, sans-serif" font-size="11.5" fill="var(--ink-soft)">result now</text>
+            </svg>
+          </div>
+          <figcaption class="topic-article__figcaption">Дія почалась у невизначений момент минулого — її результат відчутний зараз.</figcaption>
+        </figure>
+      </section>
+
+      <!-- 2. STRUCTURE -->
+      <section id="structure" class="topic-article__section">
+        <div class="topic-article__section-head">
+          <span class="topic-article__section-number">02</span>
+          <h2 class="topic-article__section-title">Structure</h2>
+        </div>
+
+        <div class="topic-article__structure">
+          <span class="topic-article__structure-label">Affirmative</span>
+          <div class="topic-article__structure-formula">
+            <span class="is-variable">Subject</span>
+            <span class="is-fixed">+</span>
+            <span>have / has</span>
+            <span class="is-fixed">+</span>
+            <span class="is-variable">V3 (past participle)</span>
+          </div>
+        </div>
+        <div class="topic-article__structure">
+          <span class="topic-article__structure-label">Negative</span>
+          <div class="topic-article__structure-formula">
+            <span class="is-variable">Subject</span>
+            <span class="is-fixed">+</span>
+            <span>have / has + not</span>
+            <span class="is-fixed">+</span>
+            <span class="is-variable">V3</span>
+          </div>
+        </div>
+        <div class="topic-article__structure">
+          <span class="topic-article__structure-label">Question</span>
+          <div class="topic-article__structure-formula">
+            <span>Have / Has</span>
+            <span class="is-fixed">+</span>
+            <span class="is-variable">Subject</span>
+            <span class="is-fixed">+</span>
+            <span class="is-variable">V3</span>
+            <span class="is-fixed">?</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. EXAMPLES -->
+      <section id="examples" class="topic-article__section">
+        <div class="topic-article__section-head">
+          <span class="topic-article__section-number">03</span>
+          <h2 class="topic-article__section-title">Examples</h2>
+        </div>
+        <div class="topic-article__examples">
+          <div class="topic-article__example">
+            <button class="topic-article__example-play" aria-label="Прослухати приклад">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
+            </button>
+            <div class="topic-article__example-text">
+              <p class="topic-article__example-en">I <b>have finished</b> my work.</p>
+              <p class="topic-article__example-ua">Я вже закінчив свою роботу.</p>
+            </div>
+          </div>
+          <div class="topic-article__example">
+            <button class="topic-article__example-play" aria-label="Прослухати приклад">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
+            </button>
+            <div class="topic-article__example-text">
+              <p class="topic-article__example-en">She <b>has never been</b> to London.</p>
+              <p class="topic-article__example-ua">Вона ніколи не була в Лондоні.</p>
+            </div>
+          </div>
+          <div class="topic-article__example">
+            <button class="topic-article__example-play" aria-label="Прослухати приклад">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
+            </button>
+            <div class="topic-article__example-text">
+              <p class="topic-article__example-en"><b>Have</b> you ever <b>tried</b> sushi?</p>
+              <p class="topic-article__example-ua">Ти коли-небудь пробував суші?</p>
+            </div>
+          </div>
+          <div class="topic-article__example">
+            <button class="topic-article__example-play" aria-label="Прослухати приклад">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
+            </button>
+            <div class="topic-article__example-text">
+              <p class="topic-article__example-en">We <b>haven't decided</b> yet.</p>
+              <p class="topic-article__example-ua">Ми ще не вирішили.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. USAGE -->
+      <section id="usage" class="topic-article__section">
+        <div class="topic-article__section-head">
+          <span class="topic-article__section-number">04</span>
+          <h2 class="topic-article__section-title">Usage</h2>
+        </div>
+        <div class="topic-article__usage">
+          <div class="topic-article__usage-item">
+            <span class="topic-article__usage-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <p class="topic-article__usage-title">Life experience</p>
+              <p class="topic-article__usage-text">Дії, що відбувались коли-небудь у житті, без конкретного часу — I have visited Paris.</p>
+            </div>
+          </div>
+          <div class="topic-article__usage-item">
+            <span class="topic-article__usage-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <p class="topic-article__usage-title">Unfinished time period</p>
+              <p class="topic-article__usage-text">З today, this week, this year — період ще не завершився: I've read three books this month.</p>
+            </div>
+          </div>
+          <div class="topic-article__usage-item">
+            <span class="topic-article__usage-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8"/></svg>
+            </span>
+            <div>
+              <p class="topic-article__usage-title">Recent action with a present result</p>
+              <p class="topic-article__usage-text">Наслідок дії відчутний просто зараз: He has broken his leg — he's in hospital.</p>
+            </div>
+          </div>
+          <div class="topic-article__usage-item">
+            <span class="topic-article__usage-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 12h12M6 6h12M6 18h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <p class="topic-article__usage-title">With already, yet, just, ever, never</p>
+              <p class="topic-article__usage-text">Ці слова-маркери майже завжди сигналізують про Present Perfect.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. COMMON MISTAKES -->
+      <section id="mistakes" class="topic-article__section">
+        <div class="topic-article__section-head">
+          <span class="topic-article__section-number">05</span>
+          <h2 class="topic-article__section-title">Common mistakes</h2>
+        </div>
+        <div class="topic-mistakes">
+          <div class="topic-mistake">
+            <div class="topic-mistake__side topic-mistake__side--wrong">
+              <span class="topic-mistake__mark">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+              </span>
+              <span class="topic-mistake__text"><del>I have seen him yesterday.</del></span>
+            </div>
+            <div class="topic-mistake__side topic-mistake__side--right">
+              <span class="topic-mistake__mark">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="topic-mistake__text">I <b>saw</b> him yesterday.</span>
+            </div>
+          </div>
+          <div class="topic-mistake">
+            <div class="topic-mistake__side topic-mistake__side--wrong">
+              <span class="topic-mistake__mark">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+              </span>
+              <span class="topic-mistake__text"><del>She has go to work.</del></span>
+            </div>
+            <div class="topic-mistake__side topic-mistake__side--right">
+              <span class="topic-mistake__mark">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="topic-mistake__text">She has <b>gone</b> to work.</span>
+            </div>
+          </div>
+          <div class="topic-mistake">
+            <div class="topic-mistake__side topic-mistake__side--wrong">
+              <span class="topic-mistake__mark">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+              </span>
+              <span class="topic-mistake__text"><del>Did you ever tried sushi?</del></span>
+            </div>
+            <div class="topic-mistake__side topic-mistake__side--right">
+              <span class="topic-mistake__mark">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="topic-mistake__text"><b>Have</b> you ever tried sushi?</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="topic-article__p" style="margin-top:20px;">
+          Найчастіша причина помилок — плутанина з формою V3. Ось декілька неправильних дієслів,
+          які варто запам'ятати для цієї теми:
+        </p>
+
+        <div class="data-table-wrap" style="margin-top:14px;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Infinitive</th>
+                <th>Past Simple</th>
+                <th>Past Participle (V3)</th>
+                <th>Переклад</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="data-table__en">go</td>
+                <td>went</td>
+                <td class="data-table__en">gone</td>
+                <td class="data-table__ua">йти</td>
+              </tr>
+              <tr>
+                <td class="data-table__en">see</td>
+                <td>saw</td>
+                <td class="data-table__en">seen</td>
+                <td class="data-table__ua">бачити</td>
+              </tr>
+              <tr>
+                <td class="data-table__en">take</td>
+                <td>took</td>
+                <td class="data-table__en">taken</td>
+                <td class="data-table__ua">брати</td>
+              </tr>
+              <tr>
+                <td class="data-table__en">break</td>
+                <td>broke</td>
+                <td class="data-table__en">broken</td>
+                <td class="data-table__ua">ламати</td>
+              </tr>
+              <tr>
+                <td class="data-table__en">lose</td>
+                <td>lost</td>
+                <td class="data-table__en">lost</td>
+                <td class="data-table__ua">втрачати</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PRACTICE CTA -->
+      <div class="topic-cta">
+        <div>
+          <h3 class="topic-cta__title">Ready to practice?</h3>
+          <p class="topic-cta__text">12 вправ на Present Perfect: multiple choice, fill in the blanks, error correction.</p>
+        </div>
+        <a href="/exercises/present-perfect" class="btn btn--primary">Practice this topic</a>
+      </div>
+
+      <!-- 6. ADDITIONAL RESOURCES -->
+      <section id="resources" class="topic-resources">
+        <h2 class="topic-resources__title">Additional resources</h2>
+        <div class="topic-resources__grid">
+          <a href="/resources/present-perfect-cheat-sheet" class="topic-resources__card">
+            <span class="topic-resources__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 4h9l3 3v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.7"/></svg>
+            </span>
+            <div>
+              <p class="topic-resources__card-title">Cheat Sheet PDF</p>
+              <p class="topic-resources__card-text">Коротка шпаргалка з формулами та маркерами часу.</p>
+              <span class="topic-resources__card-link">Download →</span>
+            </div>
+          </a>
+          <a href="/listening/present-perfect-dialogues" class="topic-resources__card">
+            <span class="topic-resources__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 14v-3a8 8 0 0 1 16 0v3" stroke="currentColor" stroke-width="1.7"/><rect x="2" y="14" width="5" height="6" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="17" y="14" width="5" height="6" rx="1.5" stroke="currentColor" stroke-width="1.7"/></svg>
+            </span>
+            <div>
+              <p class="topic-resources__card-title">Listening: real dialogues</p>
+              <p class="topic-resources__card-text">Аудіо з прикладами Present Perfect у живому мовленні.</p>
+              <span class="topic-resources__card-link">Listen →</span>
+            </div>
+          </a>
+          <a href="/grammar/past-simple" class="topic-resources__card">
+            <span class="topic-resources__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 19V5a2 2 0 0 1 2-2h12a1 1 0 0 1 1 1v14M4 19a2 2 0 0 0 2 2h13M4 19h13" stroke="currentColor" stroke-width="1.7"/></svg>
+            </span>
+            <div>
+              <p class="topic-resources__card-title">Related topic: Past Simple</p>
+              <p class="topic-resources__card-text">Порівняйте два часи, щоб краще зрозуміти різницю.</p>
+              <span class="topic-resources__card-link">Read →</span>
+            </div>
+          </a>
+          <a href="/dictionary?tag=present-perfect" class="topic-resources__card">
+            <span class="topic-resources__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.7"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <p class="topic-resources__card-title">Irregular verbs list</p>
+              <p class="topic-resources__card-text">Повна таблиця неправильних дієслів з пошуком.</p>
+              <span class="topic-resources__card-link">Open →</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- PREV / NEXT TOPIC -->
+      <nav class="topic-pager" aria-label="Навігація між темами">
+        <a href="/grammar/past-perfect" class="topic-pager__link">
+          <span class="topic-pager__label">← Previous</span>
+          <span class="topic-pager__name">Past Perfect</span>
+        </a>
+        <a href="/grammar/future-simple" class="topic-pager__link topic-pager__link--next">
+          <span class="topic-pager__label">Next →</span>
+          <span class="topic-pager__name">Future Simple</span>
+        </a>
+      </nav>
+
+    </article>
+  </div>
+</div>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__brand-logo">EN<span>GUA</span></div>
+        <p class="footer__brand-text">Платформа для самостійного вивчення англійської мови — від A1 до C2.</p>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Learn</div>
+        <ul class="footer__col-list">
+          <li><a href="/grammar" class="footer__col-link">Grammar</a></li>
+          <li><a href="/vocabulary" class="footer__col-link">Vocabulary</a></li>
+          <li><a href="/reading" class="footer__col-link">Reading</a></li>
+          <li><a href="/listening" class="footer__col-link">Listening</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Practice</div>
+        <ul class="footer__col-list">
+          <li><a href="/exercises" class="footer__col-link">Exercises</a></li>
+          <li><a href="/tests" class="footer__col-link">Tests</a></li>
+          <li><a href="/progress" class="footer__col-link">Progress</a></li>
+          <li><a href="/dictionary" class="footer__col-link">Dictionary</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">About</div>
+        <ul class="footer__col-list">
+          <li><a href="/resources" class="footer__col-link">Resources</a></li>
+          <li><a href="/about" class="footer__col-link">About ENGUA</a></li>
+          <li><a href="/contacts" class="footer__col-link">Contacts</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copyright">© 2026 ENGUA. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
