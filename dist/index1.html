@@ -64,36 +64,7 @@
 /* =========================================================
    sections/_cta-banner.scss
 ========================================================= */
-.cta-banner{ padding:0 0 90px; }
-.cta-banner__inner{
-  background:var(--ink);
-  color:var(--paper);
-  border-radius:var(--radius-l);
-  padding:56px 48px;
-  display:flex; align-items:center; justify-content:space-between; gap:32px;
-  flex-wrap:wrap;
-  position:relative;
-  overflow:hidden;
-}
-[data-theme="dark"] .cta-banner__inner{ background:var(--surface); border:1px solid var(--border); }
-.cta-banner__inner::after{
-  content:"";
-  position:absolute; right:-40px; top:-40px; width:180px; height:180px;
-  background:var(--accent-warm); opacity:.16; border-radius:50%;
-}
-.cta-banner__title{ font-size:clamp(1.6rem,3vw,2.1rem); max-width:420px; }
-.cta-banner__text{ color:#c7d3ce; margin-top:10px; max-width:380px; font-size:14.5px; }
-[data-theme="dark"] .cta-banner__text{ color:var(--ink-soft); }
-.cta-banner__actions{ display:flex; gap:14px; flex-wrap:wrap; position:relative; z-index:1; }
-.cta-banner .btn--primary{ background:var(--accent-warm); color:#402c07; }
-.cta-banner .btn--primary:hover{ background:#f0bb5a; }
-.cta-banner .btn--ghost{ border-color:#3a4a46; color:var(--paper); }
-[data-theme="dark"] .cta-banner .btn--ghost{ border-color:var(--border); color:var(--ink); }
 
-@media (max-width:575px){
-  .cta-banner__inner{ padding:38px 26px; }
-  .cta-banner__actions .btn{ flex:1 1 auto; text-align:center; }
-}
 
 /* =========================================================
    layout/_footer.scss
@@ -130,20 +101,6 @@
   <!-- =========================================================
        CTA BANNER
   ========================================================= -->
-  <section class="cta-banner">
-    <div class="container">
-      <div class="cta-banner__inner">
-        <div>
-          <h2 class="cta-banner__title">Ready to open your first page?</h2>
-          <p class="cta-banner__text">Почніть із безкоштовної вправи або пройдіть тест, щоб дізнатися свій рівень.</p>
-        </div>
-        <div class="cta-banner__actions">
-          <a href="/exercises" class="btn btn--primary">Start Learning</a>
-          <a href="/tests" class="btn btn--ghost">Take a Test</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
 </main>
 
