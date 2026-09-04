@@ -55,66 +55,7 @@
 /* =========================================================
    sections/_dashboard.scss
 ========================================================= */
-.dashboard{ padding:24px 0 72px; }
-.dashboard__card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:var(--radius-l);
-  box-shadow:var(--shadow-card);
-  padding:36px;
-  display:grid;
-  grid-template-columns:1.3fr 1fr;
-  gap:40px;
-}
-.dashboard__head{
-  display:flex; align-items:baseline; justify-content:space-between;
-  margin-bottom:22px;
-}
-.dashboard__title{ font-size:22px; }
-.dashboard__streak{
-  font-family:var(--font-mono);
-  font-size:13px; font-weight:600;
-  background:var(--paper);
-  border:1px solid var(--border);
-  border-radius:999px;
-  padding:6px 12px;
-  white-space:nowrap;
-}
-.dashboard__list{ display:flex; flex-direction:column; gap:16px; }
-.dashboard__item{ display:grid; grid-template-columns:110px 1fr 46px; align-items:center; gap:14px; }
-.dashboard__item-label{ font-size:14px; font-weight:600; }
-.dashboard__item-track{
-  height:8px; background:var(--paper-line); border-radius:99px; overflow:hidden;
-}
-.dashboard__item-fill{
-  height:100%; border-radius:99px;
-  background:var(--accent);
-}
-.dashboard__item--grammar .dashboard__item-fill{ background:var(--accent); width:68%; }
-.dashboard__item--vocabulary .dashboard__item-fill{ background:var(--accent-warm); width:42%; }
-.dashboard__item--reading .dashboard__item-fill{ background:var(--accent-dark); width:74%; }
-.dashboard__item--listening .dashboard__item-fill{ background:var(--danger); width:35%; }
-.dashboard__item-value{
-  font-family:var(--font-mono); font-size:13px; font-weight:600; text-align:right;
-}
-.dashboard__meta{
-  border-left:1px solid var(--border);
-  padding-left:40px;
-  display:flex; flex-direction:column; justify-content:center; gap:20px;
-}
-.dashboard__meta-row{ display:flex; justify-content:space-between; align-items:baseline; }
-.dashboard__meta-number{ font-family:var(--font-mono); font-size:24px; font-weight:600; }
-.dashboard__meta-label{ font-size:13px; color:var(--ink-soft); }
-.dashboard__meta-recs{ font-size:13px; color:var(--ink-soft); line-height:1.5; }
-.dashboard__meta-recs strong{ color:var(--ink); }
 
-@media (max-width:1023px){
-  .dashboard__card{ grid-template-columns:1fr; padding:26px; }
-  .dashboard__meta{ border-left:none; border-top:1px solid var(--border); padding-left:0; padding-top:24px; }
-}
-@media (max-width:575px){
-  .dashboard__item{ grid-template-columns:84px 1fr 40px; gap:10px; }
-}
 
 /* =========================================================
    sections/_features.scss (site map / "what's inside")
@@ -235,126 +176,11 @@
 
 <main>
 
-  <!-- =========================================================
-       HERO
-  ========================================================= -->
-  <section class="hero">
-    <div class="container hero__inner">
-      <div class="hero__content">
-        <span class="section-eyebrow">Self-study English platform</span>
-        <h1 class="hero__title">
-          <span class="hero__title-line">Learn English.</span>
-          <span class="hero__title-line">Practice. Improve.</span>
-          <span class="hero__title-line hero__title-mark">Master.</span>
-        </h1>
-        <p class="hero__subtitle">
-          ENGUA об'єднує граматику, лексику, читання, аудіювання та тести в один
-          зручний простір — від A1 до C2. Вивчайте у своєму темпі й бачте прогрес
-          після кожної вправи.
-        </p>
-        <div class="hero__cta-group">
-          <a href="/exercises" class="btn btn--primary">Start Learning</a>
-          <a href="/tests" class="btn btn--ghost">Take a Test</a>
-        </div>
-        <div class="hero__stats">
-          <div class="hero__stat">
-            <span class="hero__stat-number">500+</span>
-            <span class="hero__stat-label">Exercises</span>
-          </div>
-          <div class="hero__stat">
-            <span class="hero__stat-number">100+</span>
-            <span class="hero__stat-label">Grammar Topics</span>
-          </div>
-          <div class="hero__stat">
-            <span class="hero__stat-number">50+</span>
-            <span class="hero__stat-label">Reading Materials</span>
-          </div>
-          <div class="hero__stat">
-            <span class="hero__stat-number">20+</span>
-            <span class="hero__stat-label">Tests</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero__graphic" aria-hidden="true">
-        <div class="hero__notebook">
-          <span class="hero__notebook-word">efficient</span>
-          <span class="hero__notebook-underline"></span>
-          <span class="hero__notebook-check">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Present Perfect
-          </span>
-        </div>
-        <div class="hero__tag hero__tag--1">
-          <span class="hero__tag-en">although</span>
-          <span class="hero__tag-ua">хоча</span>
-        </div>
-        <div class="hero__tag hero__tag--2">
-          <span class="hero__tag-en">B2 level</span>
-          <span class="hero__tag-ua">reading unlocked</span>
-        </div>
-        <div class="hero__tag hero__tag--3">
-          <span class="hero__tag-en">get up</span>
-          <span class="hero__tag-ua">phrasal verb</span>
-        </div>
-        <div class="hero__tag hero__tag--4">
-          <span class="hero__tag-en">🔥 12</span>
-          <span class="hero__tag-ua">day streak</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- =========================================================
        LEARNING DASHBOARD
   ========================================================= -->
-  <section class="dashboard">
-    <div class="container">
-      <div class="dashboard__card">
-        <div class="dashboard__progress">
-          <div class="dashboard__head">
-            <h2 class="dashboard__title">Your Progress</h2>
-            <span class="dashboard__streak">🔥 12 days streak</span>
-          </div>
-          <ul class="dashboard__list">
-            <li class="dashboard__item dashboard__item--grammar">
-              <span class="dashboard__item-label">Grammar</span>
-              <span class="dashboard__item-track"><span class="dashboard__item-fill"></span></span>
-              <span class="dashboard__item-value">68%</span>
-            </li>
-            <li class="dashboard__item dashboard__item--vocabulary">
-              <span class="dashboard__item-label">Vocabulary</span>
-              <span class="dashboard__item-track"><span class="dashboard__item-fill"></span></span>
-              <span class="dashboard__item-value">42%</span>
-            </li>
-            <li class="dashboard__item dashboard__item--reading">
-              <span class="dashboard__item-label">Reading</span>
-              <span class="dashboard__item-track"><span class="dashboard__item-fill"></span></span>
-              <span class="dashboard__item-value">74%</span>
-            </li>
-            <li class="dashboard__item dashboard__item--listening">
-              <span class="dashboard__item-label">Listening</span>
-              <span class="dashboard__item-track"><span class="dashboard__item-fill"></span></span>
-              <span class="dashboard__item-value">35%</span>
-            </li>
-          </ul>
-        </div>
-        <div class="dashboard__meta">
-          <div class="dashboard__meta-row">
-            <span class="dashboard__meta-number">125</span>
-            <span class="dashboard__meta-label">exercises completed</span>
-          </div>
-          <div class="dashboard__meta-row">
-            <span class="dashboard__meta-number">98</span>
-            <span class="dashboard__meta-label">correct answers</span>
-          </div>
-          <p class="dashboard__meta-recs">
-            <strong>Recommended:</strong> practice Present Perfect and Modal Verbs next.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- =========================================================
        FEATURES / SITE MAP — "what's inside ENGUA"
