@@ -1,83 +1,104 @@
 @@include('partials/head.html')
 
 <div class="wrapper">
-  @@include('partials/header.html')
+    @@include('partials/header.html')
 
-  <main class="main">
-    @@include('components/hero.html', {"eyebrow":"Self-study English platform","titleLine1":"Learn English.","titleLine2":"Practice. Improve.","titleLine3":"Master.","desc":"ENGUA об'єднує граматику, лексику, читання, аудіювання та тести в один зручний простір — від A1 до C2. Вивчайте у своєму темпі й бачте прогрес після кожної вправи.","primaryButton":"Start Learning","primaryButtonUrl":"/exercises","secondaryButton":"Take a Test","secondaryButtonUrl":"/tests","stat1Number":"500+","stat1Label":"Exercises","stat2Number":"100+","stat2Label":"Grammar Topics","stat3Number":"50+","stat3Label":"Reading Materials","stat4Number":"20+","stat4Label":"Tests"})
-    @@include('components/features.html', {
-        "eyebrow": "What's inside",
-        "title": "Everything you need in one place",
-        "text": "Граматика, лексика, читання й аудіювання, вправи та тести — усе структуровано за рівнями A1–C2.",
+    <main class="main">
 
-        "card1Title": "Grammar",
-        "card1Text": "100+ тем від Present Simple до Reported Speech із поясненням, прикладами й типовими помилками.",
-        "card1Link": "Explore Grammar",
-        "card1Url": "/grammar",
+        @@include('components/hero.html', {
+            "eyebrow": "Платформа для самостійного навчання",
+            "titleLine1": "Вивчай англійську.",
+            "titleLine2": "Практикуй щодня.",
+            "titleLine3": "Досягай більшого.",
+            "desc": "ENGUA об'єднує граматику, лексику, читання, аудіювання, вправи та тести в одному зручному просторі — від A1 до C2. Навчайся у своєму темпі та відстежуй свій прогрес.",
+            "primaryButton": "Почати навчання",
+            "primaryButtonUrl": "/grammar",
+            "secondaryButton": "Пройти тест",
+            "secondaryButtonUrl": "/tests",
+            "stat1Number": "500+",
+            "stat1Label": "вправ",
+            "stat2Number": "100+",
+            "stat2Label": "тем граматики",
+            "stat3Number": "50+",
+            "stat3Label": "текстів",
+            "stat4Number": "20+",
+            "stat4Label": "тестів"
+        })
 
-        "card2Title": "Vocabulary",
-        "card2Text": "Словникові картки з вимовою, синонімами й вправами: matching, fill-in-the-blank, word formation.",
-        "card2Link": "Build vocabulary",
-        "card2Url": "/vocabulary",
+        @@include('components/features.html', {
+            "eyebrow": "Можливості платформи",
+            "title": "Усе необхідне для вивчення англійської",
+            "text": "Граматика, лексика, читання, аудіювання, вправи, тести та корисні матеріали — усе структуровано за рівнями A1–C2.",
 
-        "card3Title": "Reading",
-        "card3Text": "Тексти рівнів A1–C2 з новою лексикою та запитаннями на розуміння прочитаного.",
-        "card3Link": "Start reading",
-        "card3Url": "/reading",
+            "card1Title": "Граматика",
+            "card1Text": "100+ тем від Present Simple до Reported Speech із поясненнями, прикладами та типовими помилками.",
+            "card1Link": "Переглянути граматику",
+            "card1Url": "/grammar",
 
-        "card4Title": "Listening",
-        "card4Text": "Аудіо з транскриптом, регульованою швидкістю відтворення та вправами на розуміння.",
-        "card4Link": "Practice listening",
-        "card4Url": "/listening",
+            "card2Title": "Лексика",
+            "card2Text": "Словникові картки з вимовою, синонімами та практичними вправами на закріплення нових слів.",
+            "card2Link": "Вивчати лексику",
+            "card2Url": "/vocabulary",
 
-        "card5Title": "Exercises",
-        "card5Text": "Multiple choice, fill in the blanks, matching, word order, error correction — за темами й рівнями.",
-        "card5Link": "Try exercises",
-        "card5Url": "/exercises",
+            "card3Title": "Читання",
+            "card3Text": "Тексти рівнів A1–C1 із новою лексикою та запитаннями для перевірки розуміння прочитаного.",
+            "card3Link": "Читати тексти",
+            "card3Url": "/reading",
 
-        "card6Title": "Tests",
-        "card6Text": "Grammar, Vocabulary, Reading, Mixed та Level Test із детальним результатом і рекомендаціями.",
-        "card6Link": "Take a test",
-        "card6Url": "/tests",
+            "card4Title": "Аудіювання",
+            "card4Text": "Аудіоматеріали з транскриптами, регульованою швидкістю відтворення та вправами на розуміння.",
+            "card4Link": "Практикувати аудіювання",
+            "card4Url": "/listening",
 
-        "card7Title": "Resources",
-        "card7Text": "Grammar guides, irregular verbs, phrasal verbs, idioms та cheat sheets в одному місці.",
-        "card7Link": "Browse resources",
-        "card7Url": "/resources",
+            "card5Title": "Вправи",
+            "card5Text": "Тести з варіантами відповідей, пропусками, встановленням відповідностей, порядком слів та виправленням помилок.",
+            "card5Link": "Переглянути вправи",
+            "card5Url": "/exercises",
 
-        "card8Title": "Dictionary",
-        "card8Text": "Вбудований словник із транскрипцією, прикладами, синонімами та антонімами.",
-        "card8Link": "Search words",
-        "card8Url": "/dictionary"
-    })
-    @@include('components/values.html', {
-    "eyebrow": "Why ENGUA",
-    "title": "Learn with a purpose",
-    "text": "Практичний підхід до вивчення англійської, зрозуміла структура та постійний контроль прогресу.",
+            "card6Title": "Тести",
+            "card6Text": "Тести з граматики, лексики, читання та комплексні перевірки рівня з детальним результатом.",
+            "card6Link": "Пройти тест",
+            "card6Url": "/tests",
 
-    "item1Number": "01",
-    "item1Title": "Practice-first",
-    "item1Text": "Кожна тема граматики й лексики одразу закріплюється вправою — без пасивного читання теорії.",
+            "card7Title": "Корисні матеріали",
+            "card7Text": "Неправильні дієслова, фразові дієслова, ідіоми, прийменники, типові помилки та граматичні шпаргалки.",
+            "card7Link": "Переглянути матеріали",
+            "card7Url": "/resources",
 
-    "item2Number": "02",
-    "item2Title": "Structured by level",
-    "item2Text": "Від Beginner до Advanced: контент відсортований за рівнями A1–C2, тож ви завжди знаєте, що вивчати далі.",
+            "card8Title": "Словник",
+            "card8Text": "Вбудований словник із транскрипцією, прикладами використання, синонімами та антонімами.",
+            "card8Link": "Знайти слово",
+            "card8Url": "/dictionary"
+        })
 
-    "item3Number": "03",
-    "item3Title": "Progress you can see",
-    "item3Text": "Статистика, серія днів і рекомендації допомагають зрозуміти, над чим варто попрацювати."
-    })
-    @@include('components/cta.html', {
-    "title": "Ready to open your first page?",
-    "text": "Почніть із безкоштовної вправи або пройдіть тест, щоб дізнатися свій рівень.",
+        @@include('components/values.html', {
+            "eyebrow": "Принципи ENGUA",
+            "title": "Навчання, яке має результат",
+            "text": "Практичний підхід, зрозуміла структура та постійний контроль прогресу допомагають рухатися вперед без зайвої теорії.",
 
-    "primaryButton": "Start Learning",
-    "primaryButtonUrl": "/exercises",
+            "item1Number": "01",
+            "item1Title": "Практика насамперед",
+            "item1Text": "Кожна тема граматики та лексики одразу закріплюється вправами — ти не просто читаєш теорію, а використовуєш її на практиці.",
 
-    "secondaryButton": "Take a Test",
-    "secondaryButtonUrl": "/tests"
-    })
-  </main>
+            "item2Number": "02",
+            "item2Title": "Структура за рівнями",
+            "item2Text": "Від Beginner до Advanced: матеріали структуровані за рівнями A1–C2, тому ти завжди знаєш, що вивчати далі.",
 
-  @@include('partials/footer.html')
+            "item3Number": "03",
+            "item3Title": "Прогрес, який видно",
+            "item3Text": "Статистика, серія навчальних днів і результати вправ допомагають бачити свій прогрес та визначати теми, які потребують більше уваги."
+        })
+
+        @@include('components/cta.html', {
+            "title": "Готовий зробити перший крок?",
+            "text": "Почни з першої вправи або пройди тест, щоб визначити свій поточний рівень англійської.",
+            "primaryButton": "Почати навчання",
+            "primaryButtonUrl": "/grammar",
+            "secondaryButton": "Пройти тест",
+            "secondaryButtonUrl": "/tests"
+        })
+
+    </main>
+
+    @@include('partials/footer.html')
 </div>
