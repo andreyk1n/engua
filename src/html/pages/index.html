@@ -4,11 +4,29 @@
   @@include('partials/header.html')
 
   <main class="main">
-  @@include('components/hero.html')
-  @@include('components/dashboard.html')
-  @@include('components/features.html')
-  @@include('components/values.html')
-  @@include('components/cta.html')
+    @@include('components/hero.html', {
+    "eyebrow": "Self-study English platform",
+    "title": "<span class=\"hero__title-line\">Learn English.</span><span class=\"hero__title-line\">Practice.
+      Improve.</span><span class=\"hero__title-line hero__title-mark\">Master.</span>",
+    "desc": "ENGUA об'єднує граматику, лексику, читання, аудіювання та тести в один зручний простір — від A1 до C2.
+    Вивчайте у своєму темпі й бачте прогрес після кожної вправи.",
+    "primaryButton": "Start Learning",
+    "primaryButtonUrl": "/exercises",
+    "secondaryButton": "Take a Test",
+    "secondaryButtonUrl": "/tests",
+    "stat1Number": "500+",
+    "stat1Label": "Exercises",
+    "stat2Number": "100+",
+    "stat2Label": "Grammar Topics",
+    "stat3Number": "50+",
+    "stat3Label": "Reading Materials",
+    "stat4Number": "20+",
+    "stat4Label": "Tests"
+    })
+    @@include('components/dashboard.html')
+    @@include('components/features.html')
+    @@include('components/values.html')
+    @@include('components/cta.html')
   </main>
 
   @@include('partials/footer.html')
