@@ -5,7 +5,51 @@
 
   <main class="main">
     @@include('components/hero.html', {"eyebrow":"Self-study English platform","titleLine1":"Learn English.","titleLine2":"Practice. Improve.","titleLine3":"Master.","desc":"ENGUA об'єднує граматику, лексику, читання, аудіювання та тести в один зручний простір — від A1 до C2. Вивчайте у своєму темпі й бачте прогрес після кожної вправи.","primaryButton":"Start Learning","primaryButtonUrl":"/exercises","secondaryButton":"Take a Test","secondaryButtonUrl":"/tests","stat1Number":"500+","stat1Label":"Exercises","stat2Number":"100+","stat2Label":"Grammar Topics","stat3Number":"50+","stat3Label":"Reading Materials","stat4Number":"20+","stat4Label":"Tests"})
-    @@include('components/features.html')
+    @@include('components/features.html', {
+        "eyebrow": "What's inside",
+        "title": "Everything you need in one place",
+        "text": "Граматика, лексика, читання й аудіювання, вправи та тести — усе структуровано за рівнями A1–C2.",
+
+        "card1Title": "Grammar",
+        "card1Text": "100+ тем від Present Simple до Reported Speech із поясненням, прикладами й типовими помилками.",
+        "card1Link": "Explore Grammar",
+        "card1Url": "/grammar",
+
+        "card2Title": "Vocabulary",
+        "card2Text": "Словникові картки з вимовою, синонімами й вправами: matching, fill-in-the-blank, word formation.",
+        "card2Link": "Build vocabulary",
+        "card2Url": "/vocabulary",
+
+        "card3Title": "Reading",
+        "card3Text": "Тексти рівнів A1–C2 з новою лексикою та запитаннями на розуміння прочитаного.",
+        "card3Link": "Start reading",
+        "card3Url": "/reading",
+
+        "card4Title": "Listening",
+        "card4Text": "Аудіо з транскриптом, регульованою швидкістю відтворення та вправами на розуміння.",
+        "card4Link": "Practice listening",
+        "card4Url": "/listening",
+
+        "card5Title": "Exercises",
+        "card5Text": "Multiple choice, fill in the blanks, matching, word order, error correction — за темами й рівнями.",
+        "card5Link": "Try exercises",
+        "card5Url": "/exercises",
+
+        "card6Title": "Tests",
+        "card6Text": "Grammar, Vocabulary, Reading, Mixed та Level Test із детальним результатом і рекомендаціями.",
+        "card6Link": "Take a test",
+        "card6Url": "/tests",
+
+        "card7Title": "Resources",
+        "card7Text": "Grammar guides, irregular verbs, phrasal verbs, idioms та cheat sheets в одному місці.",
+        "card7Link": "Browse resources",
+        "card7Url": "/resources",
+
+        "card8Title": "Dictionary",
+        "card8Text": "Вбудований словник із транскрипцією, прикладами, синонімами та антонімами.",
+        "card8Link": "Search words",
+        "card8Url": "/dictionary"
+    })
     @@include('components/values.html')
     @@include('components/cta.html')
   </main>
