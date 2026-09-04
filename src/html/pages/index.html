@@ -67,7 +67,16 @@
     "item3Title": "Progress you can see",
     "item3Text": "Статистика, серія днів і рекомендації допомагають зрозуміти, над чим варто попрацювати."
     })
-    @@include('components/cta.html')
+    @@include('components/cta.html', {
+    "title": "Ready to open your first page?",
+    "text": "Почніть із безкоштовної вправи або пройдіть тест, щоб дізнатися свій рівень.",
+
+    "primaryButton": "Start Learning",
+    "primaryButtonUrl": "/exercises",
+
+    "secondaryButton": "Take a Test",
+    "secondaryButtonUrl": "/tests"
+    })
   </main>
 
   @@include('partials/footer.html')
