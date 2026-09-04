@@ -48,77 +48,150 @@
 
 
 
-// Для стартових налаштувнань теми
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* =========================================================
+   base/_variables.scss
+========================================================= */
+:root {
+    --paper: #eef3ef;
+    --paper-line: #d7e1da;
+    --surface: #ffffff;
+    --ink: #1c2b2a;
+    --ink-soft: #4b5c58;
+    --accent: #2f6f5e;
+    --accent-dark: #1f4d41;
+    --accent-warm: #e2a83d;
+    --accent-warm-dark: #b9862a;
+    --danger: #d96c58;
+    --border: #d7e1da;
+    --radius-s: 6px;
+    --radius-m: 12px;
+    --radius-l: 22px;
+    --shadow-card: 0 1px 0 rgba(28, 43, 42, .04), 0 12px 24px -16px rgba(28, 43, 42, .18);
+    --shadow-tag: 0 6px 14px -6px rgba(28, 43, 42, .28);
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --container: 1200px;
+    --header-h: 76px;
+    --transition: .2s ease;
 }
 
-body {
-    font-family: $fontFamily;
-    font-size: $fontSize;
-    color: $fontColor;
-    background-color: $bgColor;
-    overflow-x: hidden;
+[data-theme="dark"] {
+    --paper: #141c1b;
+    --paper-line: #233029;
+    --surface: #1b2523;
+    --ink: #eef3ef;
+    --ink-soft: #a9b8b3;
+    --accent: #5fb79b;
+    --accent-dark: #8fd6bd;
+    --accent-warm: #f0c169;
+    --accent-warm-dark: #f0c169;
+    --danger: #e88875;
+    --border: #2a3733;
+    --shadow-card: 0 1px 0 rgba(0, 0, 0, .2), 0 12px 24px -16px rgba(0, 0, 0, .55);
+    --shadow-tag: 0 8px 16px -6px rgba(0, 0, 0, .55);
+}
+
+/* =========================================================
+   base/_reset.scss
+========================================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
+body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    transition: background var(--transition), color var(--transition);
 }
 
-.no-scroll {
-    overflow: hidden;
+img {
+    max-width: 100%;
+    display: block;
 }
 
-// Обмежуючий контейнер - цей контейнер часто зустрічається в проектах, якщо сайт має певну геометрію.
-[class*='__container'] {
-    max-width: $maxWidthContainer;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 15px
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
     cursor: pointer;
 }
 
-// Загальні стилі для списків
-ol,
 ul {
-    padding-left: 20px;
+    list-style: none;
+}
 
-    li:not(:last-child) {
-        padding-bottom: 15px;
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.12;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent-warm);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: .001ms !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
     }
 }
 
-h1 {
-    @include adaptiveValue('font-size', 60px, 24px);
+.container {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: 20px;
 }
 
-// Cтилізація ектів статусу для поточної сторінки
-.currentPage {
-    text-decoration: underline;
+.section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+
+    &::before {
+        content: "";
+        width: 16px;
+        height: 2px;
+        background: var(--accent-warm);
+        display: inline-block;
+    }
 }
 
-// Обнулення стилів автозаповнення форми
-input {
-    background: #fff !important;
-}
-
-:-webkit-autofill,
-:-webkit-autofill:hover,
-:-webkit-autofill:focus {
-    filter: none;
-    -webkit-text-fill-color: #333;
-    -webkit-box-shadow: 0 0 0px 40rem #fff inset;
-}
-
-:-webkit-autofill::first-line {
-    font-size: 16px;
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
