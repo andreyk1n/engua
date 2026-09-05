@@ -54,64 +54,27 @@
       <span class="header__logo-mark">EN</span><span class="header__logo-underline">GUA</span>
     </a>
 
-    <nav class="header__nav" aria-label="Основна навігація">
+    <nav class="header__nav" data-nav aria-label="Основна навігація">
       <ul class="header__nav-list">
-        <li><a href="/" class="header__nav-link header__nav-link--active">Home</a></li>
-        <li><a href="/grammar" class="header__nav-link">Grammar</a></li>
-        <li><a href="/vocabulary" class="header__nav-link">Vocabulary</a></li>
-        <li><a href="/reading" class="header__nav-link">Reading</a></li>
-        <li><a href="/listening" class="header__nav-link">Listening</a></li>
-        <li><a href="/exercises" class="header__nav-link">Exercises</a></li>
-        <li><a href="/tests" class="header__nav-link">Tests</a></li>
-        <li><a href="/resources" class="header__nav-link">Resources</a></li>
+        <li><a href="/" class="header__nav-link header__nav-link--active">Головна</a></li>
+        <li><a href="/grammar" class="header__nav-link">Граматика</a></li>
+        <li><a href="/vocabulary" class="header__nav-link">Лексика</a></li>
+        <li><a href="/reading" class="header__nav-link">Читання</a></li>
+        <li><a href="/resources" class="header__nav-link">Ресурси</a></li>
       </ul>
     </nav>
 
     <div class="header__actions">
-      <div class="header__search" data-search>
-        <button type="button" class="header__search-toggle" data-search-toggle aria-expanded="false" aria-label="Відкрити пошук">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <form class="header__search-form" role="search" data-search-form>
-          <label for="header-search-input" class="visually-hidden">Пошук по сайту</label>
-          <input id="header-search-input" class="header__search-input" type="text" placeholder="present perfect...">
-          <button type="submit" class="header__search-submit" aria-label="Шукати">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </form>
-      </div>
-
       <button type="button" class="header__theme-toggle" data-theme-toggle aria-label="Перемкнути тему">
         <svg class="header__theme-icon header__theme-icon--sun" width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.4M12 19.6V22M22 12h-2.4M4.4 12H2M19 5l-1.7 1.7M6.7 17.3 5 19M19 19l-1.7-1.7M6.7 6.7 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         <svg class="header__theme-icon header__theme-icon--moon" width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
       </button>
 
-      <a href="/profile" class="header__profile-btn" aria-label="Профіль">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="2"/><path d="M4.5 20c1.6-3.6 5-5 7.5-5s5.9 1.4 7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </a>
-
-      <button type="button" class="header__burger" data-burger aria-expanded="false" aria-controls="mobile-menu" aria-label="Меню">
+      <button type="button" class="header__burger" data-burger aria-expanded="false" aria-controls="primary-navigation" aria-label="Меню">
         <span class="header__burger-line"></span>
         <span class="header__burger-line"></span>
         <span class="header__burger-line"></span>
       </button>
-    </div>
-  </div>
-
-  <div class="header__mobile-menu" id="mobile-menu" data-mobile-menu>
-    <ul class="header__mobile-list">
-      <li><a href="/" class="header__mobile-link">Home</a></li>
-      <li><a href="/grammar" class="header__mobile-link">Grammar</a></li>
-      <li><a href="/vocabulary" class="header__mobile-link">Vocabulary</a></li>
-      <li><a href="/reading" class="header__mobile-link">Reading</a></li>
-      <li><a href="/listening" class="header__mobile-link">Listening</a></li>
-      <li><a href="/exercises" class="header__mobile-link">Exercises</a></li>
-      <li><a href="/tests" class="header__mobile-link">Tests</a></li>
-      <li><a href="/resources" class="header__mobile-link">Resources</a></li>
-    </ul>
-    <div class="header__mobile-actions">
-      <a href="/exercises" class="btn btn--primary">Start Learning</a>
-      <a href="/tests" class="btn btn--ghost">Take a Test</a>
     </div>
   </div>
 </header>
@@ -442,38 +405,91 @@
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
-        <div class="footer__brand-logo">EN<span>GUA</span></div>
-        <p class="footer__brand-text">Платформа для самостійного вивчення англійської мови — від A1 до C2.</p>
+        <a href="/" class="footer__brand-logo" aria-label="ENGUA — головна">
+          EN<span>GUA</span>
+        </a>
+        <p class="footer__brand-text">
+          Платформа для самостійного вивчення англійської мови —
+          від A1 до C2.
+        </p>
       </div>
       <div class="footer__col">
-        <div class="footer__col-title">Learn</div>
+        <div class="footer__col-title">Навчання</div>
         <ul class="footer__col-list">
-          <li><a href="/grammar" class="footer__col-link">Grammar</a></li>
-          <li><a href="/vocabulary" class="footer__col-link">Vocabulary</a></li>
-          <li><a href="/reading" class="footer__col-link">Reading</a></li>
-          <li><a href="/listening" class="footer__col-link">Listening</a></li>
+          <li>
+            <a href="/grammar" class="footer__col-link">Граматика</a>
+          </li>
+          <li>
+            <a href="/vocabulary" class="footer__col-link">Лексика</a>
+          </li>
+          <li>
+            <a href="/reading" class="footer__col-link">Читання</a>
+          </li>
+          <li>
+            <a href="/dictionary" class="footer__col-link">Словник</a>
+          </li>
         </ul>
       </div>
       <div class="footer__col">
-        <div class="footer__col-title">Practice</div>
+        <div class="footer__col-title">Ресурси</div>
         <ul class="footer__col-list">
-          <li><a href="/exercises" class="footer__col-link">Exercises</a></li>
-          <li><a href="/tests" class="footer__col-link">Tests</a></li>
-          <li><a href="/progress" class="footer__col-link">Progress</a></li>
-          <li><a href="/dictionary" class="footer__col-link">Dictionary</a></li>
+          <li>
+            <a href="/resources" class="footer__col-link">Усі ресурси</a>
+          </li>
+          <li>
+            <a href="/resources/irregular-verbs" class="footer__col-link">
+              Неправильні дієслова
+            </a>
+          </li>
+          <li>
+            <a href="/resources/phrasal-verbs" class="footer__col-link">
+              Фразові дієслова
+            </a>
+          </li>
+          <li>
+            <a href="/resources/idioms" class="footer__col-link">
+              Ідіоми
+            </a>
+          </li>
+          <li>
+            <a href="/resources/prepositions" class="footer__col-link">
+              Прийменники
+            </a>
+          </li>
+          <li>
+            <a href="/resources/common-mistakes" class="footer__col-link">
+              Типові помилки
+            </a>
+          </li>
         </ul>
       </div>
       <div class="footer__col">
-        <div class="footer__col-title">About</div>
+        <div class="footer__col-title">ENGUA</div>
         <ul class="footer__col-list">
-          <li><a href="/resources" class="footer__col-link">Resources</a></li>
-          <li><a href="/about" class="footer__col-link">About ENGUA</a></li>
-          <li><a href="/contacts" class="footer__col-link">Contacts</a></li>
+          <li>
+            <a href="/tests" class="footer__col-link">Тести</a>
+          </li>
+          <li>
+            <a href="/about" class="footer__col-link">Про нас</a>
+          </li>
+          <li>
+            <a href="/contact" class="footer__col-link">Контакти</a>
+          </li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <span class="footer__copyright">© 2026 ENGUA. All rights reserved.</span>
+      <span class="footer__copyright">
+        © 2026 ENGUA. Усі права захищені.
+      </span>
+      <div class="footer__legal">
+        <a href="/privacy-policy" class="footer__legal-link">
+          Політика конфіденційності
+        </a>
+        <a href="/terms" class="footer__legal-link">
+          Умови використання
+        </a>
+      </div>
       <div class="footer__socials">
         <a href="#" class="footer__social-link" aria-label="Instagram">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -491,42 +507,35 @@
     </div>
   </div>
 </footer>
-
 <script>
   /* =========================================================
-     js/components/header.js — лише хедер: burger, search, theme
-  ========================================================= */
+   js/components/header.js — лише хедер: burger, theme
+========================================================= */
   (function () {
     var burger = document.querySelector('[data-burger]');
-    var mobileMenu = document.querySelector('[data-mobile-menu]');
+    var nav = document.querySelector('[data-nav]');
 
-    function closeMenu() {
+    function closeNav() {
       burger.classList.remove('header__burger--open');
-      mobileMenu.classList.remove('header__mobile-menu--open');
+      nav.classList.remove('header__nav--open');
       burger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
+
     burger.addEventListener('click', function () {
-      var isOpen = mobileMenu.classList.toggle('header__mobile-menu--open');
+      var isOpen = nav.classList.toggle('header__nav--open');
       burger.classList.toggle('header__burger--open', isOpen);
       burger.setAttribute('aria-expanded', String(isOpen));
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
-    mobileMenu.querySelectorAll('.header__mobile-link').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+
+    nav.querySelectorAll('.header__nav-link').forEach(function (link) {
+      link.addEventListener('click', closeNav);
     });
 
-    var searchWrap = document.querySelector('[data-search]');
-    var searchToggle = document.querySelector('[data-search-toggle]');
-    searchToggle.addEventListener('click', function () {
-      var isOpen = searchWrap.classList.toggle('header__search--open');
-      searchToggle.setAttribute('aria-expanded', String(isOpen));
-      if (isOpen) { searchWrap.querySelector('input').focus(); }
-    });
-    document.addEventListener('click', function (e) {
-      if (!searchWrap.contains(e.target)) {
-        searchWrap.classList.remove('header__search--open');
-        searchToggle.setAttribute('aria-expanded', 'false');
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('header__nav--open')) {
+        closeNav();
       }
     });
 

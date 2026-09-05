@@ -2,38 +2,91 @@
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
-        <div class="footer__brand-logo">EN<span>GUA</span></div>
-        <p class="footer__brand-text">Платформа для самостійного вивчення англійської мови — від A1 до C2.</p>
+        <a href="/" class="footer__brand-logo" aria-label="ENGUA — головна">
+          EN<span>GUA</span>
+        </a>
+        <p class="footer__brand-text">
+          Платформа для самостійного вивчення англійської мови —
+          від A1 до C2.
+        </p>
       </div>
       <div class="footer__col">
-        <div class="footer__col-title">Learn</div>
+        <div class="footer__col-title">Навчання</div>
         <ul class="footer__col-list">
-          <li><a href="/grammar" class="footer__col-link">Grammar</a></li>
-          <li><a href="/vocabulary" class="footer__col-link">Vocabulary</a></li>
-          <li><a href="/reading" class="footer__col-link">Reading</a></li>
-          <li><a href="/listening" class="footer__col-link">Listening</a></li>
+          <li>
+            <a href="/grammar" class="footer__col-link">Граматика</a>
+          </li>
+          <li>
+            <a href="/vocabulary" class="footer__col-link">Лексика</a>
+          </li>
+          <li>
+            <a href="/reading" class="footer__col-link">Читання</a>
+          </li>
+          <li>
+            <a href="/dictionary" class="footer__col-link">Словник</a>
+          </li>
         </ul>
       </div>
       <div class="footer__col">
-        <div class="footer__col-title">Practice</div>
+        <div class="footer__col-title">Ресурси</div>
         <ul class="footer__col-list">
-          <li><a href="/exercises" class="footer__col-link">Exercises</a></li>
-          <li><a href="/tests" class="footer__col-link">Tests</a></li>
-          <li><a href="/progress" class="footer__col-link">Progress</a></li>
-          <li><a href="/dictionary" class="footer__col-link">Dictionary</a></li>
+          <li>
+            <a href="/resources" class="footer__col-link">Усі ресурси</a>
+          </li>
+          <li>
+            <a href="/resources/irregular-verbs" class="footer__col-link">
+              Неправильні дієслова
+            </a>
+          </li>
+          <li>
+            <a href="/resources/phrasal-verbs" class="footer__col-link">
+              Фразові дієслова
+            </a>
+          </li>
+          <li>
+            <a href="/resources/idioms" class="footer__col-link">
+              Ідіоми
+            </a>
+          </li>
+          <li>
+            <a href="/resources/prepositions" class="footer__col-link">
+              Прийменники
+            </a>
+          </li>
+          <li>
+            <a href="/resources/common-mistakes" class="footer__col-link">
+              Типові помилки
+            </a>
+          </li>
         </ul>
       </div>
       <div class="footer__col">
-        <div class="footer__col-title">About</div>
+        <div class="footer__col-title">ENGUA</div>
         <ul class="footer__col-list">
-          <li><a href="/resources" class="footer__col-link">Resources</a></li>
-          <li><a href="/about" class="footer__col-link">About ENGUA</a></li>
-          <li><a href="/contacts" class="footer__col-link">Contacts</a></li>
+          <li>
+            <a href="/tests" class="footer__col-link">Тести</a>
+          </li>
+          <li>
+            <a href="/about" class="footer__col-link">Про нас</a>
+          </li>
+          <li>
+            <a href="/contact" class="footer__col-link">Контакти</a>
+          </li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <span class="footer__copyright">© 2026 ENGUA. All rights reserved.</span>
+      <span class="footer__copyright">
+        © 2026 ENGUA. Усі права захищені.
+      </span>
+      <div class="footer__legal">
+        <a href="/privacy-policy" class="footer__legal-link">
+          Політика конфіденційності
+        </a>
+        <a href="/terms" class="footer__legal-link">
+          Умови використання
+        </a>
+      </div>
       <div class="footer__socials">
         <a href="#" class="footer__social-link" aria-label="Instagram">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -51,42 +104,35 @@
     </div>
   </div>
 </footer>
-
 <script>
   /* =========================================================
-     js/components/header.js — лише хедер: burger, search, theme
-  ========================================================= */
+   js/components/header.js — лише хедер: burger, theme
+========================================================= */
   (function () {
     var burger = document.querySelector('[data-burger]');
-    var mobileMenu = document.querySelector('[data-mobile-menu]');
+    var nav = document.querySelector('[data-nav]');
 
-    function closeMenu() {
+    function closeNav() {
       burger.classList.remove('header__burger--open');
-      mobileMenu.classList.remove('header__mobile-menu--open');
+      nav.classList.remove('header__nav--open');
       burger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
+
     burger.addEventListener('click', function () {
-      var isOpen = mobileMenu.classList.toggle('header__mobile-menu--open');
+      var isOpen = nav.classList.toggle('header__nav--open');
       burger.classList.toggle('header__burger--open', isOpen);
       burger.setAttribute('aria-expanded', String(isOpen));
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
-    mobileMenu.querySelectorAll('.header__mobile-link').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+
+    nav.querySelectorAll('.header__nav-link').forEach(function (link) {
+      link.addEventListener('click', closeNav);
     });
 
-    var searchWrap = document.querySelector('[data-search]');
-    var searchToggle = document.querySelector('[data-search-toggle]');
-    searchToggle.addEventListener('click', function () {
-      var isOpen = searchWrap.classList.toggle('header__search--open');
-      searchToggle.setAttribute('aria-expanded', String(isOpen));
-      if (isOpen) { searchWrap.querySelector('input').focus(); }
-    });
-    document.addEventListener('click', function (e) {
-      if (!searchWrap.contains(e.target)) {
-        searchWrap.classList.remove('header__search--open');
-        searchToggle.setAttribute('aria-expanded', 'false');
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('header__nav--open')) {
+        closeNav();
       }
     });
 
