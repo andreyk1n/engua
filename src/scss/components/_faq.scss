@@ -83,7 +83,7 @@
 
     &__answer {
         padding: 0 4px 22px;
-        max-width: 100%;
+        max-width: 85%;
         font-size: 14.5px;
         color: var(--ink-soft);
     }
@@ -97,6 +97,7 @@
 
         &__answer {
             padding-bottom: 18px;
+            max-width: 100%;
         }
     }
 }
