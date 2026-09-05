@@ -1,0 +1,384 @@
+@@include('partials/head.html')
+
+<div class="wrapper">
+    @@include('partials/header.html')
+
+    <style>
+        .terms {
+            padding: 80px 0 100px;
+        }
+
+        .terms__inner {
+            max-width: 860px;
+            margin: 0 auto;
+            padding-inline: 20px;
+        }
+
+        .terms__header {
+            margin-bottom: 56px;
+        }
+
+        .terms__eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        .terms__title {
+            margin: 0 0 18px;
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            line-height: 1.05;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .terms__intro {
+            max-width: 680px;
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--ink-soft);
+        }
+
+        .terms__updated {
+            margin-top: 18px;
+            font-size: 13px;
+            color: var(--ink-muted);
+        }
+
+        .terms__content {
+            color: var(--ink-soft);
+        }
+
+        .terms__section {
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .terms__section:first-child {
+            padding-top: 0;
+            border-top: 0;
+        }
+
+        .terms__heading {
+            margin: 0 0 16px;
+            font-size: 22px;
+            line-height: 1.3;
+            font-weight: 650;
+            color: var(--ink);
+        }
+
+        .terms__content p {
+            margin: 0 0 16px;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .terms__content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .terms__content ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 16px 0 0;
+            padding-left: 22px;
+        }
+
+        .terms__content li {
+            padding-left: 4px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .terms__content strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .terms__link {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+            text-underline-offset: 3px;
+            transition: color var(--transition);
+        }
+
+        .terms__link:hover {
+            color: var(--ink);
+        }
+
+        @media (max-width: 768px) {
+            .terms {
+                padding: 56px 0 72px;
+            }
+
+            .terms__header {
+                margin-bottom: 40px;
+            }
+
+            .terms__title {
+                font-size: clamp(34px, 10vw, 44px);
+            }
+
+            .terms__intro {
+                font-size: 16px;
+            }
+
+            .terms__section {
+                padding: 28px 0;
+            }
+
+            .terms__heading {
+                font-size: 20px;
+            }
+
+            .terms__content p,
+            .terms__content li {
+                font-size: 14.5px;
+            }
+        }
+    </style>
+
+    <main class="terms">
+        <div class="terms__inner">
+
+            <header class="terms__header">
+                <span class="terms__eyebrow">ENGUA</span>
+
+                <h1 class="terms__title">
+                    Умови використання
+                </h1>
+
+                <p class="terms__intro">
+                    Ці умови визначають правила використання платформи ENGUA,
+                    доступного на ній навчального контенту та інших функцій сайту.
+                </p>
+
+                <p class="terms__updated">
+                    Останнє оновлення: 5 вересня 2026 року
+                </p>
+            </header>
+
+            <div class="terms__content">
+
+                <section class="terms__section">
+                    <h2 class="terms__heading">
+                        1. Загальні положення
+                    </h2>
+
+                    <p>
+                        ENGUA — вебплатформа для самостійного вивчення англійської мови,
+                        яка надає доступ до навчальних матеріалів, словника, текстів,
+                        тестів та інших освітніх ресурсів.
+                    </p>
+
+                    <p>
+                        Використовуючи сайт ENGUA, ви погоджуєтеся дотримуватися цих
+                        Умов використання. Якщо ви не погоджуєтеся з умовами,
+                        будь ласка, припиніть використання платформи.
+                    </p>
+                </section>
+
+                <section class="terms__section">
+                    <h2 class="terms__heading">
+                        2. Використання платформи
+                    </h2>
+
+                    <p>
+                        ENGUA призначена для особистого освітнього використання.
+                        Ви можете переглядати та використовувати доступні матеріали
+                        для власного навчання.
+                    </p>
+
+                    <p>
+                        Під час використання платформи ви зобов'язуєтеся:
+                    </p>
+
+                    <ul>
+                        <li>
+                            використовувати сайт лише в законних цілях;
+                        </li>
+                        <li>
+                            не перешкоджати нормальній роботі платформи;
+                        </li>
+                        <li>
+                            не намагатися отримати несанкціонований доступ до систем
+                            або даних;
+                        </li>
+                        <li>
+                            не використовувати сайт для поширення шкідливого,
+                            незаконного або оманливого контенту.
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="terms__section">
+                    <h2 class="terms__heading">
+                        3. Навчальні матеріали
+                    </h2>
+
+                    <p>
+                        Матеріали, розміщені на ENGUA, призначені для освітніх цілей
+                        та самостійного вивчення англійської мови.
+                    </p>
+
+                    <p>
+                        Навчальні матеріали можуть містити пояснення граматики,
+                        словниковий запас, тексти, приклади, тести та інші освітні
+                        матеріали.
+                    </p>
+
+                    <p>
+                        Інформація на платформі не повинна розглядатися як заміна
+                        професійної освіти, консультації викладача або іншого
+                        спеціаліста.
+                    </p>
+                </section>
+
+                <section class="terms__section">
+                    <h2 class="terms__heading">
+                        4. Інтелектуальна власність
+                    </h2>
+
+                    <p>
+                        Якщо інше не зазначено окремо, дизайн, структура, програмний код,
+                        логотип, тексти та інші оригінальні матеріали ENGUA належать
+                        власникам платформи або використовуються на законних підставах.
+                    </p>
+
+                    <p>
+                        Забороняється копіювати, відтворювати, поширювати,
+                        продавати або використовувати матеріали ENGUA в комерційних
+                        цілях без відповідного дозволу.
+                    </p>
+                </section>
+
+                <section class="terms__section">
+                    <h2 class="terms__heading">
+                        5. Сторонні матеріали та посилання
+                    </h2>
+
+                    <p>
+                        Платформа може містити посилання на сторонні вебсайти,
+                        сервіси або інші ресурси.
+                    </p>
+
+                    <p>
+                        ENGUA не контролює вміст сторонніх ресурсів і не несе
+                        відповідальності за їхню доступність, точність інформації
+                        або власні умови використання та політики конфіденційності.
+                    </p>
+                </section>
+
+                <section class="terms__section">
+                    <h2 class="terms__heading">
+                        6. Доступність платформи
+                    </h2>
+
+                    <p>
+                        Ми прагнемо підтримувати ENGUA доступною та стабільною,
+                        однак не гарантуємо, що сайт завжди працюватиме без
+                        перерв, помилок або технічних обмежень.
+                    </p>
+
+                    <p>
+                        Ми можемо тимчасово обмежити або припинити доступ до окремих
+                        функцій платформи для технічного обслуговування, оновлення
+                        або з інших необхідних причин.
+                    </p>
+                </section>
+
+                <section class="terms__section">
+                    <h2 class="terms__heading">
+                        7. Обмеження відповідальності
+                    </h2>
+
+                    <p>
+                        ENGUA надається за принципом «як є» та «у міру доступності».
+                        Ми докладаємо розумних зусиль для підтримки якості платформи,
+                        але не гарантуємо повноту, абсолютну точність або безперервну
+                        доступність усієї інформації та функцій.
+                    </p>
+
+                    <p>
+                        Користувач самостійно оцінює та використовує навчальні
+                        матеріали, доступні на платформі.
+                    </p>
+                </section>
+
+                <section class="terms__section">
+                    <h2 class="terms__heading">
+                        8. Зміни до платформи
+                    </h2>
+
+                    <p>
+                        Ми можемо змінювати, оновлювати, додавати або видаляти
+                        окремі матеріали та функції ENGUA без попереднього повідомлення.
+                    </p>
+
+                    <p>
+                        Такі зміни можуть бути необхідними для розвитку платформи,
+                        покращення користувацького досвіду або технічного обслуговування.
+                    </p>
+                </section>
+
+                <section class="terms__section">
+                    <h2 class="terms__heading">
+                        9. Зміни до умов використання
+                    </h2>
+
+                    <p>
+                        Ці Умови використання можуть періодично оновлюватися.
+                        Актуальна версія завжди публікується на цій сторінці.
+                    </p>
+
+                    <p>
+                        Продовження використання ENGUA після внесення змін означає,
+                        що ви приймаєте оновлені умови.
+                    </p>
+                </section>
+
+                <section class="terms__section">
+                    <h2 class="terms__heading">
+                        10. Припинення використання
+                    </h2>
+
+                    <p>
+                        Ви можете припинити використання ENGUA у будь-який момент.
+                    </p>
+
+                    <p>
+                        У разі порушення цих Умов використання ми можемо обмежити
+                        або припинити доступ до окремих функцій платформи.
+                    </p>
+                </section>
+
+                <section class="terms__section">
+                    <h2 class="terms__heading">
+                        11. Контакти
+                    </h2>
+
+                    <p>
+                        Якщо у вас виникли запитання щодо цих Умов використання,
+                        ви можете
+                        <a href="/contact" class="terms__link">
+                            зв'язатися з нами
+                        </a>
+                        через сторінку контактів.
+                    </p>
+                </section>
+
+            </div>
+
+        </div>
+    </main>
+
+    @@include('partials/footer.html')
+</div>
