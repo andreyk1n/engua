@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакти — ENGUA</title>
+<meta name="description" content="Зв'яжіться з командою ENGUA: email, соцмережі та наш офіс у Львові.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+
+/* =========================================================
+   base/_variables.scss
+========================================================= */
+:root{
+  --paper:#eef3ef;
+  --paper-line:#d7e1da;
+  --surface:#ffffff;
+  --ink:#1c2b2a;
+  --ink-soft:#4b5c58;
+  --accent:#2f6f5e;
+  --accent-dark:#1f4d41;
+  --accent-warm:#e2a83d;
+  --accent-warm-dark:#b9862a;
+  --danger:#d96c58;
+  --border:#d7e1da;
+  --radius-s:6px;
+  --radius-m:12px;
+  --radius-l:22px;
+  --shadow-card:0 1px 0 rgba(28,43,42,.04), 0 12px 24px -16px rgba(28,43,42,.18);
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Inter', -apple-system, sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+  --container:1200px;
+  --header-h:76px;
+  --transition:.2s ease;
+}
+[data-theme="dark"]{
+  --paper:#141c1b;
+  --paper-line:#233029;
+  --surface:#1b2523;
+  --ink:#eef3ef;
+  --ink-soft:#a9b8b3;
+  --accent:#5fb79b;
+  --accent-dark:#8fd6bd;
+  --accent-warm:#f0c169;
+  --accent-warm-dark:#f0c169;
+  --danger:#e88875;
+  --border:#2a3733;
+  --shadow-card:0 1px 0 rgba(0,0,0,.2), 0 12px 24px -16px rgba(0,0,0,.55);
+}
+
+/* =========================================================
+   base/_reset.scss
+========================================================= */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  transition:background var(--transition), color var(--transition);
+}
+img,svg{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+ul{ list-style:none; }
+h1,h2,h3{ font-family:var(--font-display); font-weight:600; line-height:1.15; }
+:focus-visible{ outline:2px solid var(--accent-warm); outline-offset:3px; border-radius:4px; }
+
+.container{ width:100%; max-width:var(--container); margin-inline:auto; padding-inline:20px; }
+.section-eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:14px;
+}
+.section-eyebrow::before{ content:""; width:16px; height:2px; background:var(--accent-warm); display:inline-block; }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:14px 26px; border-radius:999px; font-weight:600; font-size:15px;
+  border:1.5px solid transparent; transition:transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+  white-space:nowrap;
+}
+.btn:active{ transform:translateY(1px); }
+.btn--primary{ background:var(--ink); color:var(--paper); }
+[data-theme="dark"] .btn--primary{ background:var(--accent); color:#0d1614; }
+.btn--primary:hover{ background:var(--accent-dark); color:#fff; }
+.btn--block{ width:100%; }
+
+/* =========================================================
+   layout/_header.scss
+========================================================= */
+.header{
+  position:sticky; top:0; z-index:100; height:var(--header-h);
+  display:flex; align-items:center;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--border);
+}
+.header__inner{
+  width:100%; max-width:var(--container); margin-inline:auto; padding-inline:20px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.header__logo{ display:flex; align-items:baseline; gap:2px; font-family:var(--font-display); font-size:24px; font-weight:700; }
+.header__logo-mark{ color:var(--accent); }
+.header__logo-underline{ position:relative; }
+.header__logo-underline::after{ content:""; position:absolute; left:2px; right:2px; bottom:-4px; height:5px; background:var(--accent-warm); border-radius:3px; z-index:-1; opacity:.55; }
+
+.header__nav{ flex:1; display:flex; justify-content:center; align-items:center; gap:24px; }
+.header__nav-list{ display:flex; align-items:center; gap:4px; }
+.header__nav-link{ padding:10px 14px; font-size:14.5px; font-weight:500; color:var(--ink-soft); border-radius:var(--radius-s); transition:color var(--transition), background var(--transition); }
+.header__nav-link:hover{ color:var(--ink); background:var(--surface); }
+.header__nav-link--active{ color:var(--ink); font-weight:600; }
+.header__nav-actions{ display:none; gap:10px; }
+
+.header__actions{ display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.header__theme-toggle{ width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--ink-soft); transition:background var(--transition), color var(--transition); }
+.header__theme-toggle:hover{ background:var(--surface); color:var(--ink); }
+.header__theme-icon{ display:none; }
+.header__theme-icon--sun{ display:block; }
+[data-theme="dark"] .header__theme-icon--sun{ display:none; }
+[data-theme="dark"] .header__theme-icon--moon{ display:block; }
+
+.header__burger{ display:none; width:38px; height:38px; border-radius:50%; align-items:center; justify-content:center; flex-direction:column; gap:4px; }
+.header__burger-line{ width:19px; height:2px; background:var(--ink); border-radius:2px; transition:transform var(--transition), opacity var(--transition); }
+.header__burger--open .header__burger-line:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.header__burger--open .header__burger-line:nth-child(2){ opacity:0; }
+.header__burger--open .header__burger-line:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+@media (max-width:1023px){
+  .header__nav{
+    position:fixed; inset:var(--header-h) 0 0 0; width:100%; height:calc(100dvh - var(--header-h));
+    background:var(--paper); z-index:90;
+    flex-direction:column; align-items:stretch; justify-content:flex-start; gap:0;
+    padding:12px 20px 32px; overflow-y:auto;
+    visibility:hidden; transform:translateX(-100%);
+    transition:transform .32s ease, visibility .32s ease;
+  }
+  .header__nav-list{ flex-direction:column; align-items:stretch; }
+  .header__nav-link{ display:block; padding:16px 4px; font-size:19px; font-weight:600; border-radius:0; border-bottom:1px solid var(--border); }
+  .header__nav-actions{ display:flex; margin-top:24px; }
+  .header__nav--open{ visibility:visible; transform:translateX(0); }
+  .header__burger{ display:flex; }
+}
+
+/* =========================================================
+   sections/_contacts-hero.scss
+========================================================= */
+.contacts-hero{ padding:56px 0 40px; }
+.contacts-hero__title{ font-size:clamp(2.1rem,4.6vw,3.1rem); margin-bottom:16px; max-width:16ch; }
+.contacts-hero__lead{ color:var(--ink-soft); font-size:16px; max-width:56ch; }
+
+/* =========================================================
+   layout/_contacts-layout.scss  (інфо-картки на всю ширину)
+========================================================= */
+.contacts-layout{ padding-bottom:20px; }
+
+/* --- info cards --- */
+.contacts-info{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.contacts-info__card{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-m);
+  padding:22px; display:flex; flex-direction:column; gap:12px; align-items:flex-start;
+  transition:border-color var(--transition), transform var(--transition);
+}
+.contacts-info__card:hover{ border-color:var(--accent); transform:translateY(-2px); }
+.contacts-info__icon{
+  width:40px; height:40px; border-radius:var(--radius-s); background:var(--paper); flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; color:var(--accent-dark);
+}
+[data-theme="dark"] .contacts-info__icon{ color:var(--accent); }
+.contacts-info__label{ font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); margin-bottom:4px; }
+.contacts-info__value{ font-size:15px; font-weight:600; }
+.contacts-info__value a:hover{ color:var(--accent-dark); }
+[data-theme="dark"] .contacts-info__value a:hover{ color:var(--accent); }
+.contacts-info__sub{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; }
+
+.contacts-info__socials{ display:flex; gap:8px; }
+.contacts-info__social-link{
+  width:38px; height:38px; border-radius:50%; border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center; color:var(--ink-soft);
+}
+.contacts-info__social-link:hover{ color:var(--ink); border-color:var(--ink); }
+
+@media (max-width:1023px){
+  .contacts-info{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:575px){
+  .contacts-info{ grid-template-columns:1fr; }
+}
+
+/* =========================================================
+   sections/_contacts-map.scss
+========================================================= */
+.contacts-map{ padding:36px 0 90px; }
+.contacts-map__card{
+  position:relative;
+  border:1px solid var(--border); border-radius:var(--radius-l);
+  overflow:hidden; box-shadow:var(--shadow-card);
+}
+.contacts-map__frame{
+  width:100%; height:420px; border:0; display:block; filter:grayscale(.15) contrast(1.02);
+}
+[data-theme="dark"] .contacts-map__frame{ filter:grayscale(.4) invert(.92) contrast(.9) hue-rotate(180deg); }
+
+.contacts-map__caption{
+  position:absolute; left:20px; bottom:20px;
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-m);
+  box-shadow:var(--shadow-card);
+  padding:16px 20px; display:flex; align-items:center; gap:14px; max-width:calc(100% - 40px);
+}
+.contacts-map__pin{
+  width:38px; height:38px; border-radius:50%; background:var(--accent); color:#fff; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.contacts-map__city{ font-size:14.5px; font-weight:700; }
+.contacts-map__address{ font-size:12.5px; color:var(--ink-soft); }
+.contacts-map__link{ font-size:12.5px; font-weight:600; color:var(--accent-dark); white-space:nowrap; margin-left:auto; }
+[data-theme="dark"] .contacts-map__link{ color:var(--accent); }
+
+@media (max-width:575px){
+  .contacts-map__frame{ height:320px; }
+  .contacts-map__caption{ left:12px; right:12px; bottom:12px; max-width:none; flex-wrap:wrap; }
+  .contacts-map__link{ margin-left:0; width:100%; }
+}
+
+/* =========================================================
+   layout/_footer.scss
+========================================================= */
+.footer{ border-top:1px solid var(--border); padding:56px 0 28px; }
+.footer__top{ display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:32px; padding-bottom:40px; }
+.footer__brand-logo{ font-family:var(--font-display); font-size:22px; font-weight:700; margin-bottom:10px; }
+.footer__brand-logo span{ color:var(--accent); }
+.footer__brand-text{ color:var(--ink-soft); font-size:14px; max-width:32ch; }
+.footer__col-title{ font-family:var(--font-mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:16px; }
+.footer__col-list{ display:flex; flex-direction:column; gap:10px; }
+.footer__col-link{ font-size:14px; }
+.footer__col-link:hover{ color:var(--accent-dark); }
+[data-theme="dark"] .footer__col-link:hover{ color:var(--accent); }
+.footer__bottom{ border-top:1px solid var(--border); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+.footer__copyright{ font-size:13px; color:var(--ink-soft); }
+@media (max-width:1023px){ .footer__top{ grid-template-columns:1fr 1fr; } }
+@media (max-width:575px){ .footer__top{ grid-template-columns:1fr; } }
+
+</style>
+</head>
+<body data-theme="light">
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+<header class="header">
+  <div class="header__inner">
+    <a href="/" class="header__logo">
+      <span class="header__logo-mark">EN</span><span class="header__logo-underline">GUA</span>
+    </a>
+
+    <nav class="header__nav" data-nav aria-label="Основна навігація">
+      <ul class="header__nav-list">
+        <li><a href="/" class="header__nav-link">Головна</a></li>
+        <li><a href="/grammar" class="header__nav-link">Граматика</a></li>
+        <li><a href="/vocabulary" class="header__nav-link">Лексика</a></li>
+        <li><a href="/reading" class="header__nav-link">Читання</a></li>
+        <li><a href="/resources" class="header__nav-link">Ресурси</a></li>
+      </ul>
+      <div class="header__nav-actions">
+        <a href="/exercises" class="btn btn--primary">Почати навчання</a>
+      </div>
+    </nav>
+
+    <div class="header__actions">
+      <button type="button" class="header__theme-toggle" data-theme-toggle aria-label="Перемкнути тему">
+        <svg class="header__theme-icon header__theme-icon--sun" width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.4M12 19.6V22M22 12h-2.4M4.4 12H2M19 5l-1.7 1.7M6.7 17.3 5 19M19 19l-1.7-1.7M6.7 6.7 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="header__theme-icon header__theme-icon--moon" width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+
+      <button type="button" class="header__burger" data-burger aria-expanded="false" aria-controls="primary-navigation" aria-label="Меню">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- =========================================================
+       CONTACTS HERO
+  ========================================================= -->
+  <section class="contacts-hero">
+    <div class="container">
+      <span class="section-eyebrow">Контакти</span>
+      <h1 class="contacts-hero__title">Зв'яжіться з нами</h1>
+      <p class="contacts-hero__lead">
+        Питання щодо навчання, співпраці чи технічна проблема — напишіть нам будь-яким зручним способом.
+        Відповідаємо протягом 1–3 робочих днів.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       INFO CARDS
+  ========================================================= -->
+  <section class="contacts-layout">
+    <div class="container">
+      <div class="contacts-info">
+        <div class="contacts-info__card">
+          <span class="contacts-info__icon">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.8"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <p class="contacts-info__label">Email</p>
+            <p class="contacts-info__value"><a href="mailto:hello@engua.app">hello@engua.app</a></p>
+            <p class="contacts-info__sub">Загальні питання та підтримка</p>
+          </div>
+        </div>
+
+        <div class="contacts-info__card">
+          <span class="contacts-info__icon">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-6.3-7-11.5A7 7 0 0 1 19 9.5C19 14.7 12 21 12 21Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
+          </span>
+          <div>
+            <p class="contacts-info__label">Офіс</p>
+            <p class="contacts-info__value">Львів, Україна</p>
+            <p class="contacts-info__sub">Площа Ринок, історичний центр</p>
+          </div>
+        </div>
+
+        <div class="contacts-info__card">
+          <span class="contacts-info__icon">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          <div>
+            <p class="contacts-info__label">Графік відповіді</p>
+            <p class="contacts-info__value">Пн–Пт, 10:00–18:00</p>
+            <p class="contacts-info__sub">За київським часом</p>
+          </div>
+        </div>
+
+        <div class="contacts-info__card">
+          <span class="contacts-info__icon">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="2.6" stroke="currentColor" stroke-width="1.8"/><circle cx="6" cy="12" r="2.6" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="19" r="2.6" stroke="currentColor" stroke-width="1.8"/><path d="M8.3 10.7 15.7 6.3M8.3 13.3l7.4 4.4" stroke="currentColor" stroke-width="1.8"/></svg>
+          </span>
+          <div>
+            <p class="contacts-info__label">Соцмережі</p>
+            <p class="contacts-info__value" style="margin-bottom:2px;">@engua</p>
+            <div class="contacts-info__socials">
+              <a href="#" class="contacts-info__social-link" aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/></svg>
+              </a>
+              <a href="#" class="contacts-info__social-link" aria-label="Telegram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 4 3 11l6 2m12-9-4 16-8-6m12-10-8 8" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MAP (Lviv)
+  ========================================================= -->
+  <section class="contacts-map">
+    <div class="container">
+      <div class="contacts-map__card">
+        <iframe
+          class="contacts-map__frame"
+          src="https://www.google.com/maps?q=Площа%20Ринок,%20Львів&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Карта: ENGUA у Львові, площа Ринок"
+          aria-label="Інтерактивна карта з розташуванням офісу ENGUA у Львові">
+        </iframe>
+
+        <div class="contacts-map__caption">
+          <span class="contacts-map__pin">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-6.3-7-11.5A7 7 0 0 1 19 9.5C19 14.7 12 21 12 21Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.3" fill="currentColor"/></svg>
+          </span>
+          <div>
+            <p class="contacts-map__city">Львів</p>
+            <p class="contacts-map__address">Площа Ринок, історичний центр</p>
+          </div>
+          <a class="contacts-map__link" href="https://www.google.com/maps?q=Площа+Ринок,+Львів" target="_blank" rel="noopener">Відкрити в Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__brand-logo">EN<span>GUA</span></div>
+        <p class="footer__brand-text">Платформа для самостійного вивчення англійської мови — від A1 до C2.</p>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Навчання</div>
+        <ul class="footer__col-list">
+          <li><a href="/grammar" class="footer__col-link">Граматика</a></li>
+          <li><a href="/vocabulary" class="footer__col-link">Лексика</a></li>
+          <li><a href="/reading" class="footer__col-link">Читання</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Практика</div>
+        <ul class="footer__col-list">
+          <li><a href="/exercises" class="footer__col-link">Вправи</a></li>
+          <li><a href="/tests" class="footer__col-link">Тести</a></li>
+          <li><a href="/progress" class="footer__col-link">Прогрес</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Про проєкт</div>
+        <ul class="footer__col-list">
+          <li><a href="/about" class="footer__col-link">Про нас</a></li>
+          <li><a href="/contacts" class="footer__col-link">Контакти</a></li>
+          <li><a href="/privacy" class="footer__col-link">Політика конфіденційності</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copyright">© 2026 ENGUA. Усі права захищені.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var burger = document.querySelector('[data-burger]');
+  var nav = document.querySelector('[data-nav]');
+
+  function closeNav(){
+    burger.classList.remove('header__burger--open');
+    nav.classList.remove('header__nav--open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  burger.addEventListener('click', function(){
+    var isOpen = nav.classList.toggle('header__nav--open');
+    burger.classList.toggle('header__burger--open', isOpen);
+    burger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  nav.querySelectorAll('.header__nav-link').forEach(function(link){
+    link.addEventListener('click', closeNav);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && nav.classList.contains('header__nav--open')){ closeNav(); }
+  });
+
+  var themeToggle = document.querySelector('[data-theme-toggle]');
+  var body = document.body;
+  var saved = null;
+  try { saved = window.localStorage.getItem('engua-theme'); } catch(e){}
+  if(saved){ body.setAttribute('data-theme', saved); }
+  themeToggle.addEventListener('click', function(){
+    var next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    body.setAttribute('data-theme', next);
+    try { window.localStorage.setItem('engua-theme', next); } catch(e){}
+  });
+})();
+</script>
+
+</body>
+</html>
