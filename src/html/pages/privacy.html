@@ -1,0 +1,356 @@
+@@include('partials/head.html')
+
+<div class="wrapper">
+    @@include('partials/header.html')
+
+    <style>
+        .privacy {
+            padding: 80px 0 100px;
+        }
+
+        .privacy__inner {
+            max-width: 860px;
+            margin: 0 auto;
+            padding-inline: 20px;
+        }
+
+        .privacy__header {
+            margin-bottom: 56px;
+        }
+
+        .privacy__eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        .privacy__title {
+            margin: 0 0 18px;
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            line-height: 1.05;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .privacy__intro {
+            max-width: 680px;
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--ink-soft);
+        }
+
+        .privacy__updated {
+            margin-top: 18px;
+            font-size: 13px;
+            color: var(--ink-muted);
+        }
+
+        .privacy__content {
+            color: var(--ink-soft);
+        }
+
+        .privacy__section {
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .privacy__section:first-child {
+            padding-top: 0;
+            border-top: 0;
+        }
+
+        .privacy__heading {
+            margin: 0 0 16px;
+            font-size: 22px;
+            line-height: 1.3;
+            font-weight: 650;
+            color: var(--ink);
+        }
+
+        .privacy__content p {
+            margin: 0 0 16px;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .privacy__content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .privacy__content ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 16px 0 0;
+            padding-left: 22px;
+        }
+
+        .privacy__content li {
+            padding-left: 4px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .privacy__content strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .privacy__link {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+            text-underline-offset: 3px;
+            transition: color var(--transition);
+        }
+
+        .privacy__link:hover {
+            color: var(--ink);
+        }
+
+        @media (max-width: 768px) {
+            .privacy {
+                padding: 56px 0 72px;
+            }
+
+            .privacy__header {
+                margin-bottom: 40px;
+            }
+
+            .privacy__title {
+                font-size: clamp(34px, 10vw, 44px);
+            }
+
+            .privacy__intro {
+                font-size: 16px;
+            }
+
+            .privacy__section {
+                padding: 28px 0;
+            }
+
+            .privacy__heading {
+                font-size: 20px;
+            }
+
+            .privacy__content p,
+            .privacy__content li {
+                font-size: 14.5px;
+            }
+        }
+    </style>
+
+    <main class="privacy">
+        <div class="privacy__inner">
+
+            <header class="privacy__header">
+                <span class="privacy__eyebrow">ENGUA</span>
+
+                <h1 class="privacy__title">
+                    Політика конфіденційності
+                </h1>
+
+                <p class="privacy__intro">
+                    Ми поважаємо вашу конфіденційність і прагнемо прозоро пояснити,
+                    яку інформацію збирає ENGUA, навіщо вона потрібна та як ми її
+                    використовуємо.
+                </p>
+
+                <p class="privacy__updated">
+                    Останнє оновлення: 5 вересня 2026 року
+                </p>
+            </header>
+
+            <div class="privacy__content">
+
+                <section class="privacy__section">
+                    <h2 class="privacy__heading">
+                        1. Загальні положення
+                    </h2>
+
+                    <p>
+                        ENGUA — вебплатформа для самостійного вивчення англійської мови.
+                        Ця Політика конфіденційності описує принципи роботи з інформацією,
+                        яку ви можете надавати під час використання сайту.
+                    </p>
+
+                    <p>
+                        Використовуючи ENGUA, ви погоджуєтеся з положеннями цієї
+                        Політики конфіденційності. Якщо ви не погоджуєтеся з її умовами,
+                        будь ласка, припиніть використання сайту.
+                    </p>
+                </section>
+
+                <section class="privacy__section">
+                    <h2 class="privacy__heading">
+                        2. Яку інформацію ми можемо збирати
+                    </h2>
+
+                    <p>
+                        Залежно від функцій, які ви використовуєте, ENGUA може обробляти
+                        такі категорії інформації:
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>Технічна інформація</strong> — тип браузера,
+                            операційна система, тип пристрою та інші технічні параметри.
+                        </li>
+
+                        <li>
+                            <strong>Інформація про використання сайту</strong> —
+                            переглянуті сторінки, взаємодія з функціями та інші
+                            технічні дані про використання платформи.
+                        </li>
+
+                        <li>
+                            <strong>Інформація, яку ви надаєте добровільно</strong> —
+                            наприклад, дані, надіслані через форму зворотного зв'язку.
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="privacy__section">
+                    <h2 class="privacy__heading">
+                        3. Як ми використовуємо інформацію
+                    </h2>
+
+                    <p>
+                        Отримана інформація може використовуватися для:
+                    </p>
+
+                    <ul>
+                        <li>забезпечення роботи та доступності сайту;</li>
+                        <li>покращення структури та функціональності ENGUA;</li>
+                        <li>аналізу використання платформи;</li>
+                        <li>виявлення та усунення технічних проблем;</li>
+                        <li>відповіді на звернення користувачів.</li>
+                    </ul>
+                </section>
+
+                <section class="privacy__section">
+                    <h2 class="privacy__heading">
+                        4. Файли cookie та локальне сховище
+                    </h2>
+
+                    <p>
+                        ENGUA може використовувати файли cookie та механізми локального
+                        сховища браузера для збереження певних налаштувань і забезпечення
+                        коректної роботи окремих функцій сайту.
+                    </p>
+
+                    <p>
+                        Наприклад, локальне сховище може використовуватися для збереження
+                        вибраної користувачем теми оформлення.
+                    </p>
+
+                    <p>
+                        Ви можете керувати використанням cookie та даних локального
+                        сховища через налаштування свого браузера.
+                    </p>
+                </section>
+
+                <section class="privacy__section">
+                    <h2 class="privacy__heading">
+                        5. Сторонні сервіси
+                    </h2>
+
+                    <p>
+                        Для роботи окремих функцій ENGUA у майбутньому можуть
+                        використовуватися сторонні сервіси, наприклад аналітичні,
+                        інфраструктурні або інші технологічні платформи.
+                    </p>
+
+                    <p>
+                        Такі сервіси можуть обробляти технічну інформацію відповідно
+                        до власних політик конфіденційності та умов використання.
+                    </p>
+                </section>
+
+                <section class="privacy__section">
+                    <h2 class="privacy__heading">
+                        6. Захист інформації
+                    </h2>
+
+                    <p>
+                        Ми вживаємо розумних технічних та організаційних заходів для
+                        захисту інформації від несанкціонованого доступу, зміни,
+                        розкриття або знищення.
+                    </p>
+
+                    <p>
+                        Водночас жоден спосіб передачі або зберігання інформації через
+                        інтернет не може гарантувати абсолютну безпеку.
+                    </p>
+                </section>
+
+                <section class="privacy__section">
+                    <h2 class="privacy__heading">
+                        7. Зберігання інформації
+                    </h2>
+
+                    <p>
+                        Інформація зберігається лише протягом періоду, необхідного для
+                        виконання цілей, описаних у цій Політиці, або протягом іншого
+                        періоду, передбаченого законодавством.
+                    </p>
+                </section>
+
+                <section class="privacy__section">
+                    <h2 class="privacy__heading">
+                        8. Права користувача
+                    </h2>
+
+                    <p>
+                        Залежно від застосовного законодавства ви можете мати право
+                        запитувати інформацію про обробку ваших персональних даних,
+                        вимагати їх виправлення або видалення, а також обмеження
+                        певних видів обробки.
+                    </p>
+                </section>
+
+                <section class="privacy__section">
+                    <h2 class="privacy__heading">
+                        9. Зміни до політики
+                    </h2>
+
+                    <p>
+                        Ми можемо періодично оновлювати цю Політику конфіденційності,
+                        наприклад у разі зміни функціональності ENGUA або способів
+                        обробки інформації.
+                    </p>
+
+                    <p>
+                        Актуальна версія політики завжди публікується на цій сторінці.
+                        Дата останнього оновлення зазначається на початку документа.
+                    </p>
+                </section>
+
+                <section class="privacy__section">
+                    <h2 class="privacy__heading">
+                        10. Контакти
+                    </h2>
+
+                    <p>
+                        Якщо у вас виникли запитання щодо цієї Політики конфіденційності
+                        або обробки інформації, ви можете
+                        <a href="/contact" class="privacy__link">
+                            зв'язатися з нами
+                        </a>
+                        через сторінку контактів.
+                    </p>
+                </section>
+
+            </div>
+
+        </div>
+    </main>
+
+    @@include('partials/footer.html')
+</div>
