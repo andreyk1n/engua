@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Про нас — ENGUA</title>
+<meta name="description" content="ENGUA — платформа для самостійного вивчення англійської мови. Дізнайтесь, чому ми її створили і як вона допомагає вчитися.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+
+/* =========================================================
+   base/_variables.scss
+========================================================= */
+:root{
+  --paper:#eef3ef;
+  --paper-line:#d7e1da;
+  --surface:#ffffff;
+  --ink:#1c2b2a;
+  --ink-soft:#4b5c58;
+  --accent:#2f6f5e;
+  --accent-dark:#1f4d41;
+  --accent-warm:#e2a83d;
+  --accent-warm-dark:#b9862a;
+  --danger:#d96c58;
+  --border:#d7e1da;
+  --radius-s:6px;
+  --radius-m:12px;
+  --radius-l:22px;
+  --shadow-card:0 1px 0 rgba(28,43,42,.04), 0 12px 24px -16px rgba(28,43,42,.18);
+  --shadow-tag:0 6px 14px -6px rgba(28,43,42,.28);
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Inter', -apple-system, sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+  --container:1200px;
+  --header-h:76px;
+  --transition:.2s ease;
+}
+[data-theme="dark"]{
+  --paper:#141c1b;
+  --paper-line:#233029;
+  --surface:#1b2523;
+  --ink:#eef3ef;
+  --ink-soft:#a9b8b3;
+  --accent:#5fb79b;
+  --accent-dark:#8fd6bd;
+  --accent-warm:#f0c169;
+  --accent-warm-dark:#f0c169;
+  --danger:#e88875;
+  --border:#2a3733;
+  --shadow-card:0 1px 0 rgba(0,0,0,.2), 0 12px 24px -16px rgba(0,0,0,.55);
+  --shadow-tag:0 8px 16px -6px rgba(0,0,0,.55);
+}
+
+/* =========================================================
+   base/_reset.scss
+========================================================= */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  transition:background var(--transition), color var(--transition);
+}
+img,svg{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+ul{ list-style:none; }
+h1,h2,h3{ font-family:var(--font-display); font-weight:600; line-height:1.15; }
+:focus-visible{ outline:2px solid var(--accent-warm); outline-offset:3px; border-radius:4px; }
+@media (prefers-reduced-motion: reduce){ *{ animation-duration:.001ms !important; transition-duration:.001ms !important; } }
+
+.container{ width:100%; max-width:var(--container); margin-inline:auto; padding-inline:20px; }
+.section-eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:14px;
+}
+.section-eyebrow::before{ content:""; width:16px; height:2px; background:var(--accent-warm); display:inline-block; }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:14px 26px; border-radius:999px; font-weight:600; font-size:15px;
+  border:1.5px solid transparent; transition:transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+  white-space:nowrap;
+}
+.btn:active{ transform:translateY(1px); }
+.btn--primary{ background:var(--ink); color:var(--paper); }
+[data-theme="dark"] .btn--primary{ background:var(--accent); color:#0d1614; }
+.btn--primary:hover{ background:var(--accent-dark); color:#fff; }
+.btn--ghost{ background:transparent; border-color:var(--border); color:var(--ink); }
+.btn--ghost:hover{ border-color:var(--ink); }
+
+/* =========================================================
+   layout/_header.scss (актуальна версія: без search/profile,
+   єдиний nav, що на мобільних виїжджає зліва на весь екран)
+========================================================= */
+.header{
+  position:sticky; top:0; z-index:100; height:var(--header-h);
+  display:flex; align-items:center;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--border);
+}
+.header__inner{
+  width:100%; max-width:var(--container); margin-inline:auto; padding-inline:20px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.header__logo{ display:flex; align-items:baseline; gap:2px; font-family:var(--font-display); font-size:24px; font-weight:700; }
+.header__logo-mark{ color:var(--accent); }
+.header__logo-underline{ position:relative; }
+.header__logo-underline::after{ content:""; position:absolute; left:2px; right:2px; bottom:-4px; height:5px; background:var(--accent-warm); border-radius:3px; z-index:-1; opacity:.55; }
+
+.header__nav{ flex:1; display:flex; justify-content:center; align-items:center; gap:24px; }
+.header__nav-list{ display:flex; align-items:center; gap:4px; }
+.header__nav-link{ padding:10px 14px; font-size:14.5px; font-weight:500; color:var(--ink-soft); border-radius:var(--radius-s); transition:color var(--transition), background var(--transition); }
+.header__nav-link:hover{ color:var(--ink); background:var(--surface); }
+.header__nav-link--active{ color:var(--ink); font-weight:600; }
+.header__nav-actions{ display:none; gap:10px; }
+
+.header__actions{ display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.header__theme-toggle{ width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--ink-soft); transition:background var(--transition), color var(--transition); }
+.header__theme-toggle:hover{ background:var(--surface); color:var(--ink); }
+.header__theme-icon{ display:none; }
+.header__theme-icon--sun{ display:block; }
+[data-theme="dark"] .header__theme-icon--sun{ display:none; }
+[data-theme="dark"] .header__theme-icon--moon{ display:block; }
+
+.header__burger{ display:none; width:38px; height:38px; border-radius:50%; align-items:center; justify-content:center; flex-direction:column; gap:4px; }
+.header__burger-line{ width:19px; height:2px; background:var(--ink); border-radius:2px; transition:transform var(--transition), opacity var(--transition); }
+.header__burger--open .header__burger-line:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.header__burger--open .header__burger-line:nth-child(2){ opacity:0; }
+.header__burger--open .header__burger-line:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+@media (max-width:1023px){
+  .header__nav{
+    position:fixed; inset:var(--header-h) 0 0 0; width:100%; height:calc(100dvh - var(--header-h));
+    background:var(--paper); z-index:90;
+    flex-direction:column; align-items:stretch; justify-content:flex-start; gap:0;
+    padding:12px 20px 32px; overflow-y:auto;
+    visibility:hidden; transform:translateX(-100%);
+    transition:transform .32s ease, visibility .32s ease;
+  }
+  .header__nav-list{ flex-direction:column; align-items:stretch; }
+  .header__nav-link{ display:block; padding:16px 4px; font-size:19px; font-weight:600; border-radius:0; border-bottom:1px solid var(--border); }
+  .header__nav-actions{ display:flex; margin-top:24px; }
+  .header__nav--open{ visibility:visible; transform:translateX(0); }
+  .header__burger{ display:flex; }
+}
+
+/* =========================================================
+   sections/_about-hero.scss
+========================================================= */
+.about-hero{ padding:60px 0 30px; }
+.about-hero__inner{ max-width:820px; }
+.about-hero__title{ font-size:clamp(2.2rem,5vw,3.4rem); margin-bottom:20px; }
+.about-hero__title-mark{ position:relative; color:var(--accent-dark); }
+.about-hero__title-mark::after{
+  content:""; position:absolute; left:-2%; right:-2%; bottom:6px; height:.32em;
+  background:var(--accent-warm); opacity:.5; z-index:-1; transform:skewX(-4deg);
+}
+.about-hero__lead{ font-size:17px; color:var(--ink-soft); max-width:62ch; }
+
+/* =========================================================
+   sections/_about-mission.scss
+========================================================= */
+.about-mission{ padding:36px 0 20px; }
+.about-mission__grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+.about-mission__p{ font-size:15.5px; color:var(--ink); margin-bottom:16px; max-width:56ch; }
+.about-mission__p:last-child{ margin-bottom:0; }
+
+.about-mission__quote{
+  background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent-warm);
+  border-radius:var(--radius-m); padding:28px 30px; position:relative;
+}
+.about-mission__quote-mark{
+  font-family:var(--font-display); font-size:56px; line-height:1; color:var(--accent-warm); opacity:.5;
+  position:absolute; top:6px; left:16px;
+}
+.about-mission__quote-text{ font-family:var(--font-display); font-size:21px; font-weight:500; margin-bottom:14px; padding-left:14px; }
+.about-mission__quote-author{ font-family:var(--font-mono); font-size:12.5px; color:var(--ink-soft); padding-left:14px; }
+
+@media (max-width:1023px){ .about-mission__grid{ grid-template-columns:1fr; gap:32px; } }
+
+/* =========================================================
+   sections/_about-stats.scss
+========================================================= */
+.about-stats{ padding:44px 0; }
+.about-stats__list{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+  border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+}
+.about-stats__item{ padding:26px 20px; text-align:center; border-right:1px solid var(--border); }
+.about-stats__item:last-child{ border-right:none; }
+.about-stats__number{ display:block; font-family:var(--font-mono); font-size:28px; font-weight:600; color:var(--accent-dark); margin-bottom:4px; }
+[data-theme="dark"] .about-stats__number{ color:var(--accent); }
+.about-stats__label{ font-size:12.5px; color:var(--ink-soft); }
+
+@media (max-width:767px){
+  .about-stats__list{ grid-template-columns:1fr 1fr; }
+  .about-stats__item:nth-child(2){ border-right:none; }
+  .about-stats__item:nth-child(1), .about-stats__item:nth-child(2){ border-bottom:1px solid var(--border); }
+}
+
+/* =========================================================
+   sections/_about-values.scss
+========================================================= */
+.about-values{ padding:64px 0; }
+.about-values__head{ max-width:560px; margin-bottom:36px; }
+.about-values__title{ font-size:clamp(1.7rem,3vw,2.2rem); margin-bottom:12px; }
+.about-values__text{ color:var(--ink-soft); font-size:15.5px; }
+.about-values__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.about-values__card{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-m);
+  padding:26px; display:flex; flex-direction:column; gap:10px;
+  transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.about-values__card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-card); border-color:var(--accent); }
+.about-values__icon{ width:42px; height:42px; border-radius:var(--radius-s); background:var(--paper); display:flex; align-items:center; justify-content:center; color:var(--accent-dark); margin-bottom:4px; }
+[data-theme="dark"] .about-values__icon{ color:var(--accent); }
+.about-values__card-title{ font-family:var(--font-body); font-size:16px; font-weight:700; }
+.about-values__card-text{ font-size:13.5px; color:var(--ink-soft); }
+
+@media (max-width:1023px){ .about-values__grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:575px){ .about-values__grid{ grid-template-columns:1fr; } }
+
+/* =========================================================
+   sections/_about-timeline.scss
+========================================================= */
+.about-timeline{ padding:20px 0 70px; }
+.about-timeline__head{ max-width:560px; margin-bottom:44px; }
+.about-timeline__title{ font-size:clamp(1.7rem,3vw,2.2rem); margin-bottom:12px; }
+.about-timeline__text{ color:var(--ink-soft); font-size:15.5px; }
+
+.about-timeline__track{ position:relative; display:flex; justify-content:space-between; gap:16px; }
+.about-timeline__track::before{
+  content:""; position:absolute; top:9px; left:9px; right:9px; height:2px; background:var(--border);
+}
+.about-timeline__item{ position:relative; flex:1; padding-top:34px; }
+.about-timeline__dot{
+  position:absolute; top:0; left:0; width:20px; height:20px; border-radius:50%;
+  background:var(--surface); border:2px solid var(--accent); z-index:1;
+}
+.about-timeline__item--future .about-timeline__dot{ border-color:var(--border); border-style:dashed; background:var(--paper); }
+.about-timeline__year{ font-family:var(--font-mono); font-size:12.5px; color:var(--accent-dark); margin-bottom:6px; display:block; }
+[data-theme="dark"] .about-timeline__year{ color:var(--accent); }
+.about-timeline__item-title{ font-size:15px; font-weight:700; margin-bottom:4px; }
+.about-timeline__item-text{ font-size:13px; color:var(--ink-soft); }
+
+@media (max-width:900px){
+  .about-timeline__track{ flex-direction:column; gap:28px; }
+  .about-timeline__track::before{ top:9px; bottom:9px; left:9px; right:auto; width:2px; height:auto; }
+  .about-timeline__item{ padding-top:0; padding-left:34px; }
+  .about-timeline__dot{ top:2px; }
+}
+
+/* =========================================================
+   sections/_about-team.scss
+========================================================= */
+.about-team{ padding:20px 0 70px; }
+.about-team__head{ max-width:560px; margin-bottom:36px; }
+.about-team__title{ font-size:clamp(1.7rem,3vw,2.2rem); margin-bottom:12px; }
+.about-team__text{ color:var(--ink-soft); font-size:15.5px; }
+.about-team__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.about-team__card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-m); padding:24px; text-align:center; }
+.about-team__avatar{
+  width:64px; height:64px; border-radius:50%; margin:0 auto 14px;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-size:22px; font-weight:600; color:#fff;
+}
+.about-team__avatar--1{ background:var(--accent); }
+.about-team__avatar--2{ background:var(--accent-warm-dark); }
+.about-team__avatar--3{ background:#5c7a9e; }
+.about-team__name{ font-size:15.5px; font-weight:700; margin-bottom:2px; }
+.about-team__role{ font-family:var(--font-mono); font-size:11.5px; color:var(--accent-dark); text-transform:uppercase; letter-spacing:.04em; margin-bottom:10px; }
+[data-theme="dark"] .about-team__role{ color:var(--accent); }
+.about-team__bio{ font-size:13px; color:var(--ink-soft); }
+
+@media (max-width:767px){ .about-team__grid{ grid-template-columns:1fr; } }
+
+/* =========================================================
+   sections/_cta-banner.scss
+========================================================= */
+.cta-banner{ padding:0 0 90px; }
+.cta-banner__inner{
+  background:var(--ink); color:var(--paper); border-radius:var(--radius-l); padding:56px 48px;
+  display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;
+  position:relative; overflow:hidden;
+}
+[data-theme="dark"] .cta-banner__inner{ background:var(--surface); border:1px solid var(--border); }
+.cta-banner__inner::after{ content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; background:var(--accent-warm); opacity:.16; border-radius:50%; }
+.cta-banner__title{ font-size:clamp(1.6rem,3vw,2.1rem); max-width:420px; }
+.cta-banner__text{ color:#c7d3ce; margin-top:10px; max-width:380px; font-size:14.5px; }
+[data-theme="dark"] .cta-banner__text{ color:var(--ink-soft); }
+.cta-banner__actions{ display:flex; gap:14px; flex-wrap:wrap; position:relative; z-index:1; }
+.cta-banner .btn--primary{ background:var(--accent-warm); color:#402c07; }
+.cta-banner .btn--primary:hover{ background:#f0bb5a; }
+.cta-banner .btn--ghost{ border-color:#3a4a46; color:var(--paper); }
+[data-theme="dark"] .cta-banner .btn--ghost{ border-color:var(--border); color:var(--ink); }
+
+@media (max-width:575px){ .cta-banner__inner{ padding:38px 26px; } .cta-banner__actions .btn{ flex:1 1 auto; text-align:center; } }
+
+/* =========================================================
+   layout/_footer.scss
+========================================================= */
+.footer{ border-top:1px solid var(--border); padding:56px 0 28px; }
+.footer__top{ display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:32px; padding-bottom:40px; }
+.footer__brand-logo{ font-family:var(--font-display); font-size:22px; font-weight:700; margin-bottom:10px; }
+.footer__brand-logo span{ color:var(--accent); }
+.footer__brand-text{ color:var(--ink-soft); font-size:14px; max-width:32ch; }
+.footer__col-title{ font-family:var(--font-mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:16px; }
+.footer__col-list{ display:flex; flex-direction:column; gap:10px; }
+.footer__col-link{ font-size:14px; }
+.footer__col-link:hover{ color:var(--accent-dark); }
+[data-theme="dark"] .footer__col-link:hover{ color:var(--accent); }
+.footer__bottom{ border-top:1px solid var(--border); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+.footer__copyright{ font-size:13px; color:var(--ink-soft); }
+@media (max-width:1023px){ .footer__top{ grid-template-columns:1fr 1fr; } }
+@media (max-width:575px){ .footer__top{ grid-template-columns:1fr; } }
+
+</style>
+</head>
+<body data-theme="light">
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+<header class="header">
+  <div class="header__inner">
+    <a href="/" class="header__logo">
+      <span class="header__logo-mark">EN</span><span class="header__logo-underline">GUA</span>
+    </a>
+
+    <nav class="header__nav" data-nav aria-label="Основна навігація">
+      <ul class="header__nav-list">
+        <li><a href="/" class="header__nav-link">Головна</a></li>
+        <li><a href="/grammar" class="header__nav-link">Граматика</a></li>
+        <li><a href="/vocabulary" class="header__nav-link">Лексика</a></li>
+        <li><a href="/reading" class="header__nav-link">Читання</a></li>
+        <li><a href="/resources" class="header__nav-link">Ресурси</a></li>
+      </ul>
+      <div class="header__nav-actions">
+        <a href="/exercises" class="btn btn--primary">Почати навчання</a>
+        <a href="/tests" class="btn btn--ghost">Пройти тест</a>
+      </div>
+    </nav>
+
+    <div class="header__actions">
+      <button type="button" class="header__theme-toggle" data-theme-toggle aria-label="Перемкнути тему">
+        <svg class="header__theme-icon header__theme-icon--sun" width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.4M12 19.6V22M22 12h-2.4M4.4 12H2M19 5l-1.7 1.7M6.7 17.3 5 19M19 19l-1.7-1.7M6.7 6.7 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="header__theme-icon header__theme-icon--moon" width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+
+      <button type="button" class="header__burger" data-burger aria-expanded="false" aria-controls="primary-navigation" aria-label="Меню">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- =========================================================
+       ABOUT HERO
+  ========================================================= -->
+  <section class="about-hero">
+    <div class="container about-hero__inner">
+      <span class="section-eyebrow">Про ENGUA</span>
+      <h1 class="about-hero__title">
+        Ми віримо, що англійську можна вивчити <span class="about-hero__title-mark">самостійно</span>
+      </h1>
+      <p class="about-hero__lead">
+        ENGUA — це простір, де граматика, лексика, читання й аудіювання зібрані в одному місці,
+        а прогрес видно після кожної вправи. Без зайвого — тільки те, що справді допомагає вчитися.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MISSION + QUOTE
+  ========================================================= -->
+  <section class="about-mission">
+    <div class="container about-mission__grid">
+      <div>
+        <p class="about-mission__p">
+          Ми почали ENGUA з простого спостереження: більшість людей, які вивчають англійську
+          самостійно, губляться між десятками розрізнених ресурсів — окремо граматика, окремо
+          словник, окремо вправи. Прогрес важко відстежити, а мотивація швидко згасає.
+        </p>
+        <p class="about-mission__p">
+          Тому ми зібрали граматику, лексику, читання, аудіювання, тести та статистику в одній
+          платформі з чіткою структурою за рівнями A1–C2 — щоб ви завжди знали, що вивчати
+          сьогодні і наскільки просунулись за тиждень.
+        </p>
+      </div>
+      <div class="about-mission__quote">
+        <span class="about-mission__quote-mark">"</span>
+        <p class="about-mission__quote-text">Кожна тема одразу закріплюється практикою — без пасивного читання теорії.</p>
+        <p class="about-mission__quote-author">— принцип, на якому побудована вся ENGUA</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STATS
+  ========================================================= -->
+  <section class="about-stats">
+    <div class="container">
+      <div class="about-stats__list">
+        <div class="about-stats__item">
+          <span class="about-stats__number">500+</span>
+          <span class="about-stats__label">Exercises</span>
+        </div>
+        <div class="about-stats__item">
+          <span class="about-stats__number">100+</span>
+          <span class="about-stats__label">Grammar Topics</span>
+        </div>
+        <div class="about-stats__item">
+          <span class="about-stats__number">50+</span>
+          <span class="about-stats__label">Reading Materials</span>
+        </div>
+        <div class="about-stats__item">
+          <span class="about-stats__number">A1–C2</span>
+          <span class="about-stats__label">Level Coverage</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       VALUES
+  ========================================================= -->
+  <section class="about-values">
+    <div class="container">
+      <div class="about-values__head">
+        <span class="section-eyebrow">Принципи</span>
+        <h2 class="about-values__title">На чому побудована ENGUA</h2>
+        <p class="about-values__text">Три речі, які визначають кожне рішення в продукті — від дизайну до контенту.</p>
+      </div>
+      <div class="about-values__grid">
+        <article class="about-values__card">
+          <span class="about-values__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/></svg>
+          </span>
+          <h3 class="about-values__card-title">Practice-first</h3>
+          <p class="about-values__card-text">Теорія без вправи — це просто текст. Кожна граматична тема одразу веде до практики.</p>
+        </article>
+        <article class="about-values__card">
+          <span class="about-values__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19V5a2 2 0 0 1 2-2h12a1 1 0 0 1 1 1v14M4 19a2 2 0 0 0 2 2h13M4 19h13" stroke="currentColor" stroke-width="1.8"/></svg>
+          </span>
+          <h3 class="about-values__card-title">Structured by level</h3>
+          <p class="about-values__card-text">Контент відсортований за CEFR-рівнями — ви завжди знаєте, з чого почати й куди рухатись далі.</p>
+        </article>
+        <article class="about-values__card">
+          <span class="about-values__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19h16M7 19V9M12 19V5M17 19v-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          <h3 class="about-values__card-title">Progress you can see</h3>
+          <p class="about-values__card-text">Статистика, серія днів і рекомендації допомагають зрозуміти, над чим варто попрацювати саме зараз.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TIMELINE
+  ========================================================= -->
+  <section class="about-timeline">
+    <div class="container">
+      <div class="about-timeline__head">
+        <span class="section-eyebrow">Шлях проєкту</span>
+        <h2 class="about-timeline__title">Як розвивається ENGUA</h2>
+        <p class="about-timeline__text">Ми свідомо почали з малого MVP, щоб рухатись швидко й додавати лише те, що дійсно потрібно тим, хто вчиться.</p>
+      </div>
+      <div class="about-timeline__track">
+        <div class="about-timeline__item">
+          <span class="about-timeline__dot"></span>
+          <span class="about-timeline__year">Крок 1</span>
+          <p class="about-timeline__item-title">Ідея та структура</p>
+          <p class="about-timeline__item-text">Дослідили, чого бракує тим, хто вчить англійську самостійно.</p>
+        </div>
+        <div class="about-timeline__item">
+          <span class="about-timeline__dot"></span>
+          <span class="about-timeline__year">Крок 2</span>
+          <p class="about-timeline__item-title">MVP: Grammar + Exercises</p>
+          <p class="about-timeline__item-text">Перша версія з граматикою, вправами та тестами.</p>
+        </div>
+        <div class="about-timeline__item">
+          <span class="about-timeline__dot"></span>
+          <span class="about-timeline__year">Крок 3</span>
+          <p class="about-timeline__item-title">Vocabulary + Progress</p>
+          <p class="about-timeline__item-text">Додали словникові картки, дашборд прогресу та серію днів.</p>
+        </div>
+        <div class="about-timeline__item about-timeline__item--future">
+          <span class="about-timeline__dot"></span>
+          <span class="about-timeline__year">Далі</span>
+          <p class="about-timeline__item-title">Listening + акаунти</p>
+          <p class="about-timeline__item-text">Аудіювання, синхронізація прогресу та особистий кабінет.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TEAM
+  ========================================================= -->
+  <section class="about-team">
+    <div class="container">
+      <div class="about-team__head">
+        <span class="section-eyebrow">Команда</span>
+        <h2 class="about-team__title">Хто робить ENGUA</h2>
+        <p class="about-team__text">Невелика команда, яка сама вчить мови й тестує кожну вправу на собі.</p>
+      </div>
+      <div class="about-team__grid">
+        <div class="about-team__card">
+          <div class="about-team__avatar about-team__avatar--1">МК</div>
+          <p class="about-team__name">Марія К.</p>
+          <p class="about-team__role">Curriculum Lead</p>
+          <p class="about-team__bio">Відповідає за структуру граматики та якість пояснень.</p>
+        </div>
+        <div class="about-team__card">
+          <div class="about-team__avatar about-team__avatar--2">ОП</div>
+          <p class="about-team__name">Олег П.</p>
+          <p class="about-team__role">Frontend Developer</p>
+          <p class="about-team__bio">Будує інтерфейс і Exercise Engine, на якому працюють усі вправи.</p>
+        </div>
+        <div class="about-team__card">
+          <div class="about-team__avatar about-team__avatar--3">АТ</div>
+          <p class="about-team__name">Аня Т.</p>
+          <p class="about-team__role">UX Design</p>
+          <p class="about-team__bio">Слідкує, щоб навчання залишалось простим і зрозумілим на будь-якому екрані.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CTA BANNER
+  ========================================================= -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__inner">
+        <div>
+          <h2 class="cta-banner__title">Готові спробувати?</h2>
+          <p class="cta-banner__text">Почніть із безкоштовної вправи або пройдіть тест, щоб дізнатися свій рівень.</p>
+        </div>
+        <div class="cta-banner__actions">
+          <a href="/exercises" class="btn btn--primary">Почати навчання</a>
+          <a href="/tests" class="btn btn--ghost">Пройти тест</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__brand-logo">EN<span>GUA</span></div>
+        <p class="footer__brand-text">Платформа для самостійного вивчення англійської мови — від A1 до C2.</p>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Навчання</div>
+        <ul class="footer__col-list">
+          <li><a href="/grammar" class="footer__col-link">Граматика</a></li>
+          <li><a href="/vocabulary" class="footer__col-link">Лексика</a></li>
+          <li><a href="/reading" class="footer__col-link">Читання</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Практика</div>
+        <ul class="footer__col-list">
+          <li><a href="/exercises" class="footer__col-link">Вправи</a></li>
+          <li><a href="/tests" class="footer__col-link">Тести</a></li>
+          <li><a href="/progress" class="footer__col-link">Прогрес</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Про проєкт</div>
+        <ul class="footer__col-list">
+          <li><a href="/resources" class="footer__col-link">Ресурси</a></li>
+          <li><a href="/about" class="footer__col-link">Про нас</a></li>
+          <li><a href="/privacy" class="footer__col-link">Політика конфіденційності</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copyright">© 2026 ENGUA. Усі права захищені.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var burger = document.querySelector('[data-burger]');
+  var nav = document.querySelector('[data-nav]');
+
+  function closeNav(){
+    burger.classList.remove('header__burger--open');
+    nav.classList.remove('header__nav--open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  burger.addEventListener('click', function(){
+    var isOpen = nav.classList.toggle('header__nav--open');
+    burger.classList.toggle('header__burger--open', isOpen);
+    burger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  nav.querySelectorAll('.header__nav-link').forEach(function(link){
+    link.addEventListener('click', closeNav);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && nav.classList.contains('header__nav--open')){ closeNav(); }
+  });
+
+  var themeToggle = document.querySelector('[data-theme-toggle]');
+  var body = document.body;
+  var saved = null;
+  try { saved = window.localStorage.getItem('engua-theme'); } catch(e){}
+  if(saved){ body.setAttribute('data-theme', saved); }
+  themeToggle.addEventListener('click', function(){
+    var next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    body.setAttribute('data-theme', next);
+    try { window.localStorage.setItem('engua-theme', next); } catch(e){}
+  });
+})();
+</script>
+
+</body>
+</html>
