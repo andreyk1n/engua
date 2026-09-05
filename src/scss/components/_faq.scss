@@ -1,0 +1,102 @@
+.faq {
+    padding: 20px 0 80px;
+
+    &__head {
+        max-width: 560px;
+        margin-bottom: 36px;
+    }
+
+    &__title {
+        font-size: clamp(1.7rem, 3vw, 2.2rem);
+        margin-bottom: 12px;
+    }
+
+    &__text {
+        color: var(--ink-soft);
+        font-size: 15.5px;
+    }
+
+    &__list {
+        max-width: 100%;
+        border-top: 1px solid var(--border);
+    }
+
+    &__item {
+        border-bottom: 1px solid var(--border);
+    }
+
+    &__question {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 22px 4px;
+        text-align: left;
+        font-family: var(--font-body);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--ink);
+        cursor: pointer;
+
+        &:hover {
+            color: var(--accent-dark);
+        }
+    }
+
+    [data-theme="dark"] &__question:hover {
+        color: var(--accent);
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 1.5px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ink-soft);
+        transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
+
+        svg {
+            transition: transform var(--transition);
+        }
+    }
+
+    &__item--open &__icon {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+    }
+
+    &__item--open &__icon svg {
+        transform: rotate(45deg);
+    }
+
+    &__answer-wrap {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+    }
+
+    &__answer {
+        padding: 0 4px 22px;
+        max-width: 100%;
+        font-size: 14.5px;
+        color: var(--ink-soft);
+    }
+
+    @media (max-width:575px) {
+        &__question {
+            font-size: 15px;
+            padding: 18px 2px;
+            gap: 14px;
+        }
+
+        &__answer {
+            padding-bottom: 18px;
+        }
+    }
+}

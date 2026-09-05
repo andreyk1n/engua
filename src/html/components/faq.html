@@ -1,0 +1,45 @@
+<section class="faq">
+  <div class="container">
+    <div class="faq__head">
+      <span class="section-eyebrow">FAQ</span>
+      <h2 class="faq__title">Часті запитання</h2>
+      <p class="faq__text">
+        Не знайшли відповідь? Напишіть нам — розділ «Контакти» завжди відкритий.
+      </p>
+    </div>
+
+    <div class="faq__list" data-accordion>
+
+      @@for (var i = 0; i < faq.length; i++) {
+        <div class="faq__item" data-accordion-item>
+          <button
+            type="button"
+            class="faq__question"
+            data-accordion-trigger
+            aria-expanded="false"
+          >
+            `+faq[i].question+`
+
+            <span class="faq__icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 5v14M5 12h14"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+          </button>
+
+          <div class="faq__answer-wrap" data-accordion-panel>
+            <p class="faq__answer">
+              `+faq[i].answer+`
+            </p>
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+</section>

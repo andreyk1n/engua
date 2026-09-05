@@ -105,40 +105,81 @@
   </div>
 </footer>
 <script>
-(function(){
-  var burger = document.querySelector('[data-burger]');
-  var nav = document.querySelector('[data-nav]');
+  (function () {
+    var burger = document.querySelector('[data-burger]');
+    var nav = document.querySelector('[data-nav]');
 
-  function closeNav(){
-    burger.classList.remove('header__burger--open');
-    nav.classList.remove('header__nav--open');
-    burger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-  burger.addEventListener('click', function(){
-    var isOpen = nav.classList.toggle('header__nav--open');
-    burger.classList.toggle('header__burger--open', isOpen);
-    burger.setAttribute('aria-expanded', String(isOpen));
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-  nav.querySelectorAll('.header__nav-link').forEach(function(link){
-    link.addEventListener('click', closeNav);
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && nav.classList.contains('header__nav--open')){ closeNav(); }
-  });
+    function closeNav() {
+      burger.classList.remove('header__burger--open');
+      nav.classList.remove('header__nav--open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    burger.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('header__nav--open');
+      burger.classList.toggle('header__burger--open', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    nav.querySelectorAll('.header__nav-link').forEach(function (link) {
+      link.addEventListener('click', closeNav);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('header__nav--open')) { closeNav(); }
+    });
 
-  var themeToggle = document.querySelector('[data-theme-toggle]');
-  var body = document.body;
-  var saved = null;
-  try { saved = window.localStorage.getItem('engua-theme'); } catch(e){}
-  if(saved){ body.setAttribute('data-theme', saved); }
-  themeToggle.addEventListener('click', function(){
-    var next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    body.setAttribute('data-theme', next);
-    try { window.localStorage.setItem('engua-theme', next); } catch(e){}
-  });
-})();
+    var themeToggle = document.querySelector('[data-theme-toggle]');
+    var body = document.body;
+    var saved = null;
+    try { saved = window.localStorage.getItem('engua-theme'); } catch (e) { }
+    if (saved) { body.setAttribute('data-theme', saved); }
+    themeToggle.addEventListener('click', function () {
+      var next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', next);
+      try { window.localStorage.setItem('engua-theme', next); } catch (e) { }
+    });
+  })();
+</script>
+<script>
+  (function () {
+    var accordion = document.querySelector('[data-accordion]');
+    if (!accordion) return;
+
+    var items = accordion.querySelectorAll('[data-accordion-item]');
+
+    function closeItem(item) {
+      var trigger = item.querySelector('[data-accordion-trigger]');
+      var panel = item.querySelector('[data-accordion-panel]');
+      item.classList.remove('faq__item--open');
+      trigger.setAttribute('aria-expanded', 'false');
+      panel.style.maxHeight = null;
+    }
+
+    function openItem(item) {
+      var trigger = item.querySelector('[data-accordion-trigger]');
+      var panel = item.querySelector('[data-accordion-panel]');
+      item.classList.add('faq__item--open');
+      trigger.setAttribute('aria-expanded', 'true');
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+    }
+
+    items.forEach(function (item) {
+      var trigger = item.querySelector('[data-accordion-trigger]');
+      trigger.addEventListener('click', function () {
+        var isOpen = item.classList.contains('faq__item--open');
+        items.forEach(closeItem);
+        if (!isOpen) { openItem(item); }
+      });
+    });
+
+    window.addEventListener('resize', function () {
+      var openItemEl = accordion.querySelector('.faq__item--open');
+      if (openItemEl) {
+        var panel = openItemEl.querySelector('[data-accordion-panel]');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  })();
 </script>
 
 </body>
