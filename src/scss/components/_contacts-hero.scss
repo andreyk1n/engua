@@ -1,0 +1,15 @@
+.contacts-hero {
+	padding: 56px 0 40px;
+
+	&__title {
+		font-size: clamp(2.1rem, 4.6vw, 3.1rem);
+		margin-bottom: 16px;
+		max-width: 16ch;
+	}
+
+	&__lead {
+		color: var(--ink-soft);
+		font-size: 16px;
+		max-width: 56ch;
+	}
+}

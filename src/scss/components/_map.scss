@@ -1,0 +1,74 @@
+.contacts-map {
+  padding: 36px 0 90px;
+
+  &__card {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+  }
+
+  &__frame {
+    width: 100%;
+    height: 420px;
+    border: 0;
+    display: block;
+    filter: grayscale(.15) contrast(1.02);
+
+    [data-theme="dark"] & {
+      filter: grayscale(.4) invert(.92) contrast(.9) hue-rotate(180deg);
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow-card);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: calc(100% - 40px);
+  }
+
+  &__pin {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__city { font-size: 14.5px; font-weight: 700; }
+  &__address { font-size: 12.5px; color: var(--ink-soft); }
+  &__link {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--accent-dark);
+    white-space: nowrap;
+    margin-left: auto;
+
+    [data-theme="dark"] & { color: var(--accent); }
+  }
+
+  @media (max-width: 575px) {
+    &__frame { height: 320px; }
+    &__caption {
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      max-width: none;
+      flex-wrap: wrap;
+    }
+    &__link { margin-left: 0; width: 100%; }
+  }
+}

@@ -147,82 +147,16 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:600; line-height:1.15; }
 /* =========================================================
    sections/_contacts-hero.scss
 ========================================================= */
-.contacts-hero{ padding:56px 0 40px; }
-.contacts-hero__title{ font-size:clamp(2.1rem,4.6vw,3.1rem); margin-bottom:16px; max-width:16ch; }
-.contacts-hero__lead{ color:var(--ink-soft); font-size:16px; max-width:56ch; }
+
 
 /* =========================================================
    layout/_contacts-layout.scss  (інфо-картки на всю ширину)
 ========================================================= */
-.contacts-layout{ padding-bottom:20px; }
 
-/* --- info cards --- */
-.contacts-info{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-.contacts-info__card{
-  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-m);
-  padding:22px; display:flex; flex-direction:column; gap:12px; align-items:flex-start;
-  transition:border-color var(--transition), transform var(--transition);
-}
-.contacts-info__card:hover{ border-color:var(--accent); transform:translateY(-2px); }
-.contacts-info__icon{
-  width:40px; height:40px; border-radius:var(--radius-s); background:var(--paper); flex-shrink:0;
-  display:flex; align-items:center; justify-content:center; color:var(--accent-dark);
-}
-[data-theme="dark"] .contacts-info__icon{ color:var(--accent); }
-.contacts-info__label{ font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); margin-bottom:4px; }
-.contacts-info__value{ font-size:15px; font-weight:600; }
-.contacts-info__value a:hover{ color:var(--accent-dark); }
-[data-theme="dark"] .contacts-info__value a:hover{ color:var(--accent); }
-.contacts-info__sub{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; }
-
-.contacts-info__socials{ display:flex; gap:8px; }
-.contacts-info__social-link{
-  width:38px; height:38px; border-radius:50%; border:1px solid var(--border);
-  display:flex; align-items:center; justify-content:center; color:var(--ink-soft);
-}
-.contacts-info__social-link:hover{ color:var(--ink); border-color:var(--ink); }
-
-@media (max-width:1023px){
-  .contacts-info{ grid-template-columns:1fr 1fr; }
-}
-@media (max-width:575px){
-  .contacts-info{ grid-template-columns:1fr; }
-}
 
 /* =========================================================
    sections/_contacts-map.scss
 ========================================================= */
-.contacts-map{ padding:36px 0 90px; }
-.contacts-map__card{
-  position:relative;
-  border:1px solid var(--border); border-radius:var(--radius-l);
-  overflow:hidden; box-shadow:var(--shadow-card);
-}
-.contacts-map__frame{
-  width:100%; height:420px; border:0; display:block; filter:grayscale(.15) contrast(1.02);
-}
-[data-theme="dark"] .contacts-map__frame{ filter:grayscale(.4) invert(.92) contrast(.9) hue-rotate(180deg); }
-
-.contacts-map__caption{
-  position:absolute; left:20px; bottom:20px;
-  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-m);
-  box-shadow:var(--shadow-card);
-  padding:16px 20px; display:flex; align-items:center; gap:14px; max-width:calc(100% - 40px);
-}
-.contacts-map__pin{
-  width:38px; height:38px; border-radius:50%; background:var(--accent); color:#fff; flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
-}
-.contacts-map__city{ font-size:14.5px; font-weight:700; }
-.contacts-map__address{ font-size:12.5px; color:var(--ink-soft); }
-.contacts-map__link{ font-size:12.5px; font-weight:600; color:var(--accent-dark); white-space:nowrap; margin-left:auto; }
-[data-theme="dark"] .contacts-map__link{ color:var(--accent); }
-
-@media (max-width:575px){
-  .contacts-map__frame{ height:320px; }
-  .contacts-map__caption{ left:12px; right:12px; bottom:12px; max-width:none; flex-wrap:wrap; }
-  .contacts-map__link{ margin-left:0; width:100%; }
-}
 
 /* =========================================================
    layout/_footer.scss
@@ -285,7 +219,10 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:600; line-height:1.15; }
 
 <main>
  
-  
+    @@include('components/contacts-hero.html')
+    @@include('components/contacts-cards.html')
+    @@include('components/map.html')
+
 
 </main>
 
