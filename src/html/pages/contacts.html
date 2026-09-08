@@ -5,7 +5,11 @@
 
     <main class="main">
 
-      @@include('components/custom-hero.html')
+      @@include('components/custom-hero.html', {
+        "eyebrow": "Контакти",
+        "title": "Зв'яжіться з нами",
+        "lead": "Маєте запитання, знайшли помилку або хочете запропонувати покращення для ENGUA? Напишіть нам — будемо раді почути вас."
+      })
       @@include('components/contacts-card.html')
       @@include('components/map.html')
 
