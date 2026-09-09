@@ -257,3 +257,47 @@
         <p class="resources-grid__empty" data-filter-empty>Нічого не знайдено в цій категорії.</p>
     </div>
 </section>
+
+
+<script>
+    (function () {
+        function initResourcesFilter() {
+            var filter = document.querySelector('[data-filter]');
+            if (!filter) return;
+
+            var chips = filter.querySelectorAll('[data-filter-chip]');
+            var cards = document.querySelectorAll('[data-filter-list] [data-category]');
+            var emptyState = document.querySelector('[data-filter-empty]');
+
+            chips.forEach(function (chip) {
+                chip.addEventListener('click', function () {
+                    chips.forEach(function (c) { c.classList.remove('resources-filter__chip--active'); });
+                    chip.classList.add('resources-filter__chip--active');
+
+                    var value = chip.getAttribute('data-filter-chip');
+                    var visibleCount = 0;
+
+                    cards.forEach(function (card) {
+                        var categories = card.getAttribute('data-category').split(',').map(function (category) {
+                            return category.trim();
+                        });
+                        var matches = value === 'all' || categories.indexOf(value) !== -1;
+                        card.classList.toggle('resource-card--hidden', !matches);
+                        if (matches) visibleCount++;
+                    });
+
+                    if (emptyState) {
+                        emptyState.classList.toggle('resources-grid__empty--visible', visibleCount === 0);
+                    }
+                });
+      });
+
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initResourcesFilter);
+        } else {
+            initResourcesFilter();
+        }
+  })();
+</script>
