@@ -11,10 +11,223 @@
     "lead": "Добірка перевірених застосунків, словників і курсів, які добре доповнюють навчання на ENGUA. Усі посилання ведуть на офіційні сайти сервісів."
     })
 
-    @@include('components/resources.html')
+    @@include('components/resources-filter.html', {
+  "filters": [
+    {
+      "value": "all",
+      "label": "Усі",
+      "active": true
+    },
+    {
+      "value": "grammar",
+      "label": "Граматика",
+      "active": false
+    },
+    {
+      "value": "vocabulary",
+      "label": "Лексика",
+      "active": false
+    },
+    {
+      "value": "listening",
+      "label": "Аудіювання",
+      "active": false
+    },
+    {
+      "value": "apps",
+      "label": "Застосунки",
+      "active": false
+    },
+    {
+      "value": "video",
+      "label": "Відео",
+      "active": false
+    }
+  ]
+})
+
+@@include('components/resources-grid.html', {
+  "resources": [
+    {
+      "category": "listening",
+      "icon": "BBC",
+      "color": "#bb1919",
+      "badge": "Free",
+      "badgeType": "free",
+      "title": "BBC Learning English",
+      "description": "Відео- та аудіоуроки з субтитрами, щотижневий випуск новин простою англійською для практики аудіювання.",
+      "tag": "Listening",
+      "url": "https://www.bbc.co.uk/learningenglish"
+    },
+    {
+      "category": "grammar",
+      "icon": "BC",
+      "color": "#c8102e",
+      "badge": "Free",
+      "badgeType": "free",
+      "title": "British Council LearnEnglish",
+      "description": "Безкоштовні структуровані уроки граматики та лексики за рівнями A1–C1 з інтерактивними вправами.",
+      "tag": "Grammar",
+      "url": "https://learnenglish.britishcouncil.org"
+    },
+    {
+      "category": "vocabulary",
+      "icon": "CD",
+      "color": "#1a3c6e",
+      "badge": "Free",
+      "badgeType": "free",
+      "title": "Cambridge Dictionary",
+      "description": "Онлайн-словник із транскрипцією, аудіовимовою у британському й американському варіантах та прикладами вживання.",
+      "tag": "Vocabulary",
+      "url": "https://dictionary.cambridge.org"
+    },
+    {
+      "category": "apps",
+      "icon": "DL",
+      "color": "#58cc02",
+      "badge": "Freemium",
+      "badgeType": "freemium",
+      "title": "Duolingo",
+      "description": "Ігровий застосунок для щоденної практики граматики й лексики короткими вправами — добре працює як звичка.",
+      "tag": "App",
+      "url": "https://www.duolingo.com"
+    },
+    {
+      "category": "vocabulary",
+      "icon": "QZ",
+      "color": "#4255ff",
+      "badge": "Freemium",
+      "badgeType": "freemium",
+      "title": "Quizlet",
+      "description": "Флеш-картки для запам'ятовування слів — використовуйте готові набори від спільноти або створюйте власні.",
+      "tag": "Vocabulary",
+      "url": "https://quizlet.com"
+    },
+    {
+      "category": "grammar",
+      "icon": "GR",
+      "color": "#15c39a",
+      "badge": "Freemium",
+      "badgeType": "freemium",
+      "title": "Grammarly",
+      "description": "Перевіряє граматику, пунктуацію та стиль письмового тексту в реальному часі — зручно для есе й листів.",
+      "tag": "Grammar",
+      "url": "https://www.grammarly.com"
+    },
+    {
+      "category": "listening,video",
+      "icon": "TED",
+      "color": "#e62b1e",
+      "badge": "Free",
+      "badgeType": "free",
+      "title": "TED / TED-Ed",
+      "description": "Виступи носіїв мови на різні теми із субтитрами — гарна практика аудіювання для рівнів B2 і вище.",
+      "tag": "Listening · Video",
+      "url": "https://www.ted.com"
+    },
+    {
+      "category": "listening",
+      "icon": "EL",
+      "color": "#f4a300",
+      "badge": "Free",
+      "badgeType": "free",
+      "title": "ELLLO",
+      "description": "Безкоштовна бібліотека коротких аудіо з реальними носіями мови різних акцентів і рівнів складності.",
+      "tag": "Listening",
+      "url": "https://elllo.org"
+    },
+    {
+      "category": "apps,vocabulary",
+      "icon": "AK",
+      "color": "#2f6f5e",
+      "badge": "Free",
+      "badgeType": "free",
+      "title": "Anki",
+      "description": "Застосунок для інтервального повторення слів (spaced repetition) — ефективно для довгострокового запам'ятовування лексики.",
+      "tag": "App · Vocabulary",
+      "url": "https://apps.ankiweb.net"
+    },
+    {
+      "category": "vocabulary",
+      "icon": "MW",
+      "color": "#8b1d2c",
+      "badge": "Free",
+      "badgeType": "free",
+      "title": "Merriam-Webster",
+      "description": "Американський словник з детальними поясненнями, синонімами та щоденним словом дня для розширення лексики.",
+      "tag": "Vocabulary",
+      "url": "https://www.merriam-webster.com"
+    },
+    {
+      "category": "apps",
+      "icon": "MR",
+      "color": "#eb008b",
+      "badge": "Freemium",
+      "badgeType": "freemium",
+      "title": "Memrise",
+      "description": "Вивчення лексики через короткі відео з носіями мови в реальних ситуаціях — доповнює класичні флеш-картки.",
+      "tag": "App",
+      "url": "https://www.memrise.com"
+    },
+    {
+      "category": "video",
+      "icon": "EL",
+      "color": "#ff0000",
+      "badge": "Free",
+      "badgeType": "free",
+      "title": "English with Lucy",
+      "description": "YouTube-канал з уроками вимови та розмовних фраз від носійки британської англійської.",
+      "tag": "Video",
+      "url": "https://www.youtube.com/@EnglishwithLucy"
+    }
+  ]
+})
 
   </main>
 
 </div>
+
+<script>
+    (function () {
+        function initResourcesFilter() {
+            var filter = document.querySelector('[data-filter]');
+            if (!filter) return;
+
+            var chips = filter.querySelectorAll('[data-filter-chip]');
+            var cards = document.querySelectorAll('[data-filter-list] [data-category]');
+            var emptyState = document.querySelector('[data-filter-empty]');
+
+            chips.forEach(function (chip) {
+                chip.addEventListener('click', function () {
+                    chips.forEach(function (c) { c.classList.remove('resources-filter__chip--active'); });
+                    chip.classList.add('resources-filter__chip--active');
+
+                    var value = chip.getAttribute('data-filter-chip');
+                    var visibleCount = 0;
+
+                    cards.forEach(function (card) {
+                        var categories = card.getAttribute('data-category').split(',').map(function (category) {
+                            return category.trim();
+                        });
+                        var matches = value === 'all' || categories.indexOf(value) !== -1;
+                        card.classList.toggle('resource-card--hidden', !matches);
+                        if (matches) visibleCount++;
+                    });
+
+                    if (emptyState) {
+                        emptyState.classList.toggle('resources-grid__empty--visible', visibleCount === 0);
+                    }
+                });
+      });
+
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initResourcesFilter);
+        } else {
+            initResourcesFilter();
+        }
+  })();
+</script>
 
 @@include('partials/footer.html')

@@ -1,0 +1,17 @@
+<section class="resources-filter">
+  <div class="container">
+    <div class="resources-filter__list" data-filter>
+
+      @@for (var i = 0; i < filters.length; i++) {
+        <button
+          type="button"
+          class="resources-filter__chip `+ (filters[i].active ? 'resources-filter__chip--active' : '') + `"
+          data-filter-chip="`+filters[i].value+`"
+        >
+          `+filters[i].label+`
+        </button>
+      }
+
+    </div>
+  </div>
+</section>

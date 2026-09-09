@@ -1,0 +1,64 @@
+<section class="resources-grid">
+  <div class="container">
+    <div class="resources-grid__list" data-filter-list>
+
+      @@for (var i = 0; i < resources.length; i++) {
+        <article
+          class="resource-card"
+          data-category="`+resources[i].category+`"
+        >
+          <div class="resource-card__top">
+            <span
+              class="resource-card__icon"
+              data-color="`+resources[i].color+`"
+            >
+              `+resources[i].icon+`
+            </span>
+
+            <span class="resource-card__badge resource-card__badge--`+resources[i].badgeType+`">
+              `+resources[i].badge+`
+            </span>
+          </div>
+
+          <h3 class="resource-card__title">
+            `+resources[i].title+`
+          </h3>
+
+          <p class="resource-card__desc">
+            `+resources[i].description+`
+          </p>
+
+          <div class="resource-card__bottom">
+            <span class="resource-card__tag">
+              `+resources[i].tag+`
+            </span>
+
+            <a
+              href="`+resources[i].url+`"
+              target="_blank"
+              rel="noopener"
+              class="resource-card__link"
+            >
+              Відкрити
+
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M7 17 17 7M9 7h8v8"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </article>
+      }
+
+    </div>
+
+    <p class="resources-grid__empty" data-filter-empty>
+      Нічого не знайдено в цій категорії.
+    </p>
+  </div>
+</section>
