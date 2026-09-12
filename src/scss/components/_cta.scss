@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 .cta {
     padding: 0 0 90px;
 
@@ -30,6 +32,7 @@
     &__title {
         font-size: clamp(1.6rem, 3vw, 2.1rem);
         max-width: 420px;
+        color: #c7d3ce;
     }
 
     &__text {
@@ -63,23 +66,25 @@
 }
 
 [data-theme="dark"] {
-    .cta-banner__inner {
-        background: var(--surface);
-        border: 1px solid var(--border);
-    }
+    .cta {
+        &__inner {
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
 
-    .cta-banner__text {
-        color: var(--ink-soft);
-    }
+        &__text {
+            color: var(--ink-soft);
+        }
 
-    .cta-banner .btn--ghost {
-        border-color: var(--border);
-        color: var(--ink);
+        .btn--ghost {
+            border-color: var(--border);
+            color: var(--ink);
+        }
     }
 }
 
 @media (max-width:575px) {
-    .cta-banner {
+    .cta {
         &__inner {
             padding: 38px 26px;
         }
