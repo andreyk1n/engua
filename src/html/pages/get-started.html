@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Як навчатися з ENGUA — Роадмап</title>
+<meta name="description" content="Покроковий план, як ефективно вивчати англійську на ENGUA: від визначення рівня до регулярної практики й відстеження прогресу.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+
+/* =========================================================
+   base/_variables.scss
+========================================================= */
+:root{
+  --paper:#eef3ef;
+  --paper-line:#d7e1da;
+  --surface:#ffffff;
+  --ink:#1c2b2a;
+  --ink-soft:#4b5c58;
+  --accent:#2f6f5e;
+  --accent-dark:#1f4d41;
+  --accent-warm:#e2a83d;
+  --accent-warm-dark:#b9862a;
+  --danger:#d96c58;
+  --border:#d7e1da;
+  --radius-s:6px;
+  --radius-m:12px;
+  --radius-l:22px;
+  --shadow-card:0 1px 0 rgba(28,43,42,.04), 0 12px 24px -16px rgba(28,43,42,.18);
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Inter', -apple-system, sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+  --container:1100px;
+  --header-h:76px;
+  --transition:.2s ease;
+}
+[data-theme="dark"]{
+  --paper:#141c1b;
+  --paper-line:#233029;
+  --surface:#1b2523;
+  --ink:#eef3ef;
+  --ink-soft:#a9b8b3;
+  --accent:#5fb79b;
+  --accent-dark:#8fd6bd;
+  --accent-warm:#f0c169;
+  --accent-warm-dark:#f0c169;
+  --danger:#e88875;
+  --border:#2a3733;
+  --shadow-card:0 1px 0 rgba(0,0,0,.2), 0 12px 24px -16px rgba(0,0,0,.55);
+}
+
+/* =========================================================
+   base/_reset.scss
+========================================================= */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  transition:background var(--transition), color var(--transition);
+}
+img,svg{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+ul{ list-style:none; }
+h1,h2,h3{ font-family:var(--font-display); font-weight:600; line-height:1.15; }
+:focus-visible{ outline:2px solid var(--accent-warm); outline-offset:3px; border-radius:4px; }
+
+.container{ width:100%; max-width:var(--container); margin-inline:auto; padding-inline:20px; }
+.section-eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:14px;
+}
+.section-eyebrow::before{ content:""; width:16px; height:2px; background:var(--accent-warm); display:inline-block; }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:14px 26px; border-radius:999px; font-weight:600; font-size:15px;
+  border:1.5px solid transparent; transition:transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+  white-space:nowrap;
+}
+.btn--primary{ background:var(--ink); color:var(--paper); }
+[data-theme="dark"] .btn--primary{ background:var(--accent); color:#0d1614; }
+.btn--primary:hover{ background:var(--accent-dark); color:#fff; }
+.btn--ghost{ background:transparent; border-color:var(--border); color:var(--ink); }
+.btn--ghost:hover{ border-color:var(--ink); }
+
+/* =========================================================
+   layout/_header.scss
+========================================================= */
+.header{
+  position:sticky; top:0; z-index:100; height:var(--header-h);
+  display:flex; align-items:center;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--border);
+}
+.header__inner{
+  width:100%; max-width:var(--container); margin-inline:auto; padding-inline:20px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.header__logo{ display:flex; align-items:baseline; gap:2px; font-family:var(--font-display); font-size:24px; font-weight:700; }
+.header__logo-mark{ color:var(--accent); }
+.header__logo-underline{ position:relative; }
+.header__logo-underline::after{ content:""; position:absolute; left:2px; right:2px; bottom:-4px; height:5px; background:var(--accent-warm); border-radius:3px; z-index:-1; opacity:.55; }
+
+.header__nav{ flex:1; display:flex; justify-content:center; align-items:center; gap:24px; }
+.header__nav-list{ display:flex; align-items:center; gap:4px; }
+.header__nav-link{ padding:10px 14px; font-size:14.5px; font-weight:500; color:var(--ink-soft); border-radius:var(--radius-s); transition:color var(--transition), background var(--transition); }
+.header__nav-link:hover{ color:var(--ink); background:var(--surface); }
+.header__nav-link--active{ color:var(--ink); font-weight:600; }
+.header__nav-actions{ display:none; gap:10px; }
+
+.header__actions{ display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.header__theme-toggle{ width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--ink-soft); transition:background var(--transition), color var(--transition); }
+.header__theme-toggle:hover{ background:var(--surface); color:var(--ink); }
+.header__theme-icon{ display:none; }
+.header__theme-icon--sun{ display:block; }
+[data-theme="dark"] .header__theme-icon--sun{ display:none; }
+[data-theme="dark"] .header__theme-icon--moon{ display:block; }
+
+.header__burger{ display:none; width:38px; height:38px; border-radius:50%; align-items:center; justify-content:center; flex-direction:column; gap:4px; }
+.header__burger-line{ width:19px; height:2px; background:var(--ink); border-radius:2px; transition:transform var(--transition), opacity var(--transition); }
+.header__burger--open .header__burger-line:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.header__burger--open .header__burger-line:nth-child(2){ opacity:0; }
+.header__burger--open .header__burger-line:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+@media (max-width:1023px){
+  .header__nav{
+    position:fixed; inset:var(--header-h) 0 0 0; width:100%; height:calc(100dvh - var(--header-h));
+    background:var(--paper); z-index:90;
+    flex-direction:column; align-items:stretch; justify-content:flex-start; gap:0;
+    padding:12px 20px 32px; overflow-y:auto;
+    visibility:hidden; transform:translateX(-100%);
+    transition:transform .32s ease, visibility .32s ease;
+  }
+  .header__nav-list{ flex-direction:column; align-items:stretch; }
+  .header__nav-link{ display:block; padding:16px 4px; font-size:19px; font-weight:600; border-radius:0; border-bottom:1px solid var(--border); }
+  .header__nav-actions{ display:flex; margin-top:24px; }
+  .header__nav--open{ visibility:visible; transform:translateX(0); }
+  .header__burger{ display:flex; }
+}
+
+/* =========================================================
+   sections/_roadmap-hero.scss
+========================================================= */
+.roadmap-hero{ padding:56px 0 34px; text-align:center; }
+.roadmap-hero__inner{ max-width:720px; margin-inline:auto; }
+.roadmap-hero__eyebrow{ justify-content:center; }
+.roadmap-hero__title{ font-size:clamp(2.1rem,4.8vw,3.2rem); margin-bottom:16px; }
+.roadmap-hero__lead{ color:var(--ink-soft); font-size:16px; }
+
+/* =========================================================
+   sections/_roadmap-path.scss  (зигзаг-таймлайн кроків навчання)
+========================================================= */
+.roadmap-path{ padding:30px 0 70px; }
+.roadmap-path__track{ position:relative; }
+.roadmap-path__track::before{
+  content:"";
+  position:absolute; left:50%; top:0; bottom:0; width:2px;
+  background:repeating-linear-gradient(to bottom, var(--border) 0 8px, transparent 8px 16px);
+  transform:translateX(-1px);
+}
+
+.roadmap-step{
+  position:relative; width:50%;
+  padding:0 48px 64px;
+}
+.roadmap-step:last-child{ padding-bottom:0; }
+.roadmap-step--right{ left:50%; }
+.roadmap-step--left{ left:0; text-align:right; }
+.roadmap-step--left .roadmap-step__card{ margin-left:auto; }
+.roadmap-step--left .roadmap-step__tag{ margin-left:auto; }
+.roadmap-step--left .roadmap-step__footer{ justify-content:flex-end; }
+
+.roadmap-step__dot{
+  position:absolute; top:6px; width:38px; height:38px; border-radius:50%;
+  background:var(--surface); border:2px solid var(--accent);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-mono); font-weight:700; font-size:14px; color:var(--accent-dark);
+  z-index:1;
+}
+[data-theme="dark"] .roadmap-step__dot{ color:var(--accent); }
+.roadmap-step--right .roadmap-step__dot{ left:-19px; }
+.roadmap-step--left .roadmap-step__dot{ right:-19px; }
+
+.roadmap-step__card{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-m);
+  padding:22px 24px; max-width:400px;
+  transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.roadmap-step__card:hover{ transform:translateY(-2px); box-shadow:var(--shadow-card); border-color:var(--accent); }
+
+.roadmap-step__tag{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--font-mono); font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
+  color:var(--ink-soft); background:var(--paper); border:1px solid var(--border);
+  padding:4px 10px; border-radius:999px; margin-bottom:10px;
+}
+.roadmap-step__title{ font-size:17px; margin-bottom:8px; }
+.roadmap-step__text{ font-size:13.5px; color:var(--ink-soft); margin-bottom:14px; }
+.roadmap-step__footer{ display:flex; align-items:center; gap:8px; }
+.roadmap-step__link{ font-size:12.5px; font-weight:600; color:var(--accent-dark); display:inline-flex; align-items:center; gap:4px; }
+[data-theme="dark"] .roadmap-step__link{ color:var(--accent); }
+
+@media (max-width:800px){
+  .roadmap-path__track::before{ left:19px; }
+  .roadmap-step{ width:100%; left:0 !important; text-align:left !important; padding:0 0 44px 56px; }
+  .roadmap-step__card{ margin-left:0 !important; max-width:none; }
+  .roadmap-step__tag{ margin-left:0 !important; }
+  .roadmap-step__footer{ justify-content:flex-start !important; }
+  .roadmap-step__dot{ left:0 !important; right:auto !important; }
+}
+
+/* =========================================================
+   sections/_roadmap-week.scss  (рекомендований тижневий ритм)
+========================================================= */
+.roadmap-week{ padding:20px 0 70px; }
+.roadmap-week__head{ max-width:560px; margin-bottom:32px; }
+.roadmap-week__title{ font-size:clamp(1.7rem,3vw,2.2rem); margin-bottom:12px; }
+.roadmap-week__text{ color:var(--ink-soft); font-size:15.5px; }
+
+.roadmap-week__grid{ display:grid; grid-template-columns:repeat(7,1fr); gap:10px; }
+.roadmap-day{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-m);
+  padding:16px 12px; text-align:center; display:flex; flex-direction:column; gap:8px; align-items:center;
+}
+.roadmap-day--rest{ background:var(--paper); border-style:dashed; }
+.roadmap-day__label{ font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); }
+.roadmap-day__icon{
+  width:34px; height:34px; border-radius:50%; background:var(--paper);
+  display:flex; align-items:center; justify-content:center; color:var(--accent-dark);
+}
+[data-theme="dark"] .roadmap-day__icon{ color:var(--accent); }
+.roadmap-day--rest .roadmap-day__icon{ background:var(--surface); color:var(--ink-soft); }
+.roadmap-day__title{ font-size:12.5px; font-weight:700; }
+.roadmap-day__time{ font-family:var(--font-mono); font-size:10.5px; color:var(--ink-soft); }
+
+@media (max-width:900px){ .roadmap-week__grid{ grid-template-columns:repeat(4,1fr); } }
+@media (max-width:575px){ .roadmap-week__grid{ grid-template-columns:repeat(2,1fr); } }
+
+/* =========================================================
+   sections/_roadmap-tips.scss
+========================================================= */
+.roadmap-tips{ padding:20px 0 70px; }
+.roadmap-tips__head{ max-width:560px; margin-bottom:32px; }
+.roadmap-tips__title{ font-size:clamp(1.7rem,3vw,2.2rem); margin-bottom:12px; }
+.roadmap-tips__text{ color:var(--ink-soft); font-size:15.5px; }
+.roadmap-tips__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.roadmap-tip{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-m);
+  padding:24px; display:flex; flex-direction:column; gap:10px;
+}
+.roadmap-tip__number{ font-family:var(--font-mono); font-size:12.5px; color:var(--accent-dark); }
+[data-theme="dark"] .roadmap-tip__number{ color:var(--accent); }
+.roadmap-tip__title{ font-size:15.5px; font-weight:700; }
+.roadmap-tip__text{ font-size:13.5px; color:var(--ink-soft); }
+
+@media (max-width:900px){ .roadmap-tips__grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:575px){ .roadmap-tips__grid{ grid-template-columns:1fr; } }
+
+/* =========================================================
+   sections/_cta-banner.scss
+========================================================= */
+.cta-banner{ padding:0 0 90px; }
+.cta-banner__inner{
+  background:var(--ink); color:var(--paper); border-radius:var(--radius-l); padding:56px 48px;
+  display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;
+  position:relative; overflow:hidden;
+}
+[data-theme="dark"] .cta-banner__inner{ background:var(--surface); border:1px solid var(--border); }
+.cta-banner__inner::after{ content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; background:var(--accent-warm); opacity:.16; border-radius:50%; }
+.cta-banner__title{ font-size:clamp(1.6rem,3vw,2.1rem); max-width:420px; }
+.cta-banner__text{ color:#c7d3ce; margin-top:10px; max-width:380px; font-size:14.5px; }
+[data-theme="dark"] .cta-banner__text{ color:var(--ink-soft); }
+.cta-banner__actions{ display:flex; gap:14px; flex-wrap:wrap; position:relative; z-index:1; }
+.cta-banner .btn--primary{ background:var(--accent-warm); color:#402c07; }
+.cta-banner .btn--primary:hover{ background:#f0bb5a; }
+.cta-banner .btn--ghost{ border-color:#3a4a46; color:var(--paper); }
+[data-theme="dark"] .cta-banner .btn--ghost{ border-color:var(--border); color:var(--ink); }
+
+@media (max-width:575px){ .cta-banner__inner{ padding:38px 26px; } .cta-banner__actions .btn{ flex:1 1 auto; text-align:center; } }
+
+/* =========================================================
+   layout/_footer.scss
+========================================================= */
+.footer{ border-top:1px solid var(--border); padding:56px 0 28px; }
+.footer__top{ display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:32px; padding-bottom:40px; }
+.footer__brand-logo{ font-family:var(--font-display); font-size:22px; font-weight:700; margin-bottom:10px; }
+.footer__brand-logo span{ color:var(--accent); }
+.footer__brand-text{ color:var(--ink-soft); font-size:14px; max-width:32ch; }
+.footer__col-title{ font-family:var(--font-mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:16px; }
+.footer__col-list{ display:flex; flex-direction:column; gap:10px; }
+.footer__col-link{ font-size:14px; }
+.footer__col-link:hover{ color:var(--accent-dark); }
+[data-theme="dark"] .footer__col-link:hover{ color:var(--accent); }
+.footer__bottom{ border-top:1px solid var(--border); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+.footer__copyright{ font-size:13px; color:var(--ink-soft); }
+@media (max-width:1023px){ .footer__top{ grid-template-columns:1fr 1fr; } }
+@media (max-width:575px){ .footer__top{ grid-template-columns:1fr; } }
+
+</style>
+</head>
+<body data-theme="light">
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+<header class="header">
+  <div class="header__inner">
+    <a href="/" class="header__logo">
+      <span class="header__logo-mark">EN</span><span class="header__logo-underline">GUA</span>
+    </a>
+
+    <nav class="header__nav" data-nav aria-label="Основна навігація">
+      <ul class="header__nav-list">
+        <li><a href="/" class="header__nav-link">Головна</a></li>
+        <li><a href="/grammar" class="header__nav-link">Граматика</a></li>
+        <li><a href="/vocabulary" class="header__nav-link">Лексика</a></li>
+        <li><a href="/reading" class="header__nav-link">Читання</a></li>
+        <li><a href="/resources" class="header__nav-link">Ресурси</a></li>
+      </ul>
+      <div class="header__nav-actions">
+        <a href="/exercises" class="btn btn--primary">Почати навчання</a>
+      </div>
+    </nav>
+
+    <div class="header__actions">
+      <button type="button" class="header__theme-toggle" data-theme-toggle aria-label="Перемкнути тему">
+        <svg class="header__theme-icon header__theme-icon--sun" width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.4M12 19.6V22M22 12h-2.4M4.4 12H2M19 5l-1.7 1.7M6.7 17.3 5 19M19 19l-1.7-1.7M6.7 6.7 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="header__theme-icon header__theme-icon--moon" width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+
+      <button type="button" class="header__burger" data-burger aria-expanded="false" aria-controls="primary-navigation" aria-label="Меню">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+  <section class="roadmap-hero">
+    <div class="container roadmap-hero__inner">
+      <span class="section-eyebrow roadmap-hero__eyebrow">Роадмап навчання</span>
+      <h1 class="roadmap-hero__title">Як правильно навчатися з ENGUA</h1>
+      <p class="roadmap-hero__lead">
+        Не обов'язково проходити все підряд і одразу. Ось послідовність, яка працює найкраще —
+        від визначення рівня до стабільної звички вчитися щодня.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ROADMAP PATH (zigzag timeline)
+  ========================================================= -->
+  <section class="roadmap-path">
+    <div class="container">
+      <div class="roadmap-path__track">
+
+        <div class="roadmap-step roadmap-step--right">
+          <span class="roadmap-step__dot">1</span>
+          <div class="roadmap-step__card">
+            <span class="roadmap-step__tag">5 хв · одноразово</span>
+            <h3 class="roadmap-step__title">Визначте свій рівень</h3>
+            <p class="roadmap-step__text">Пройдіть Level Test — 20 запитань із граматики, лексики й читання. Це задасть точку старту й уникне вивчення того, що ви вже знаєте.</p>
+            <div class="roadmap-step__footer">
+              <a href="/tests" class="roadmap-step__link">Пройти тест →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap-step roadmap-step--left">
+          <span class="roadmap-step__dot">2</span>
+          <div class="roadmap-step__card">
+            <span class="roadmap-step__tag">15–20 хв · щодня</span>
+            <h3 class="roadmap-step__title">Вивчайте граматику по темах</h3>
+            <p class="roadmap-step__text">Проходьте теми послідовно за рівнем — від Present Simple до складніших конструкцій. Кожна тема одразу закріплюється вправою.</p>
+            <div class="roadmap-step__footer">
+              <a href="/grammar" class="roadmap-step__link">До граматики →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap-step roadmap-step--right">
+          <span class="roadmap-step__dot">3</span>
+          <div class="roadmap-step__card">
+            <span class="roadmap-step__tag">10 хв · щодня</span>
+            <h3 class="roadmap-step__title">Розширюйте словниковий запас</h3>
+            <p class="roadmap-step__text">Додавайте 5–10 нових слів на день за темами, що вам цікаві. Повторюйте картки наступного дня, щоб слова закріпилися в пам'яті.</p>
+            <div class="roadmap-step__footer">
+              <a href="/vocabulary" class="roadmap-step__link">До лексики →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap-step roadmap-step--left">
+          <span class="roadmap-step__dot">4</span>
+          <div class="roadmap-step__card">
+            <span class="roadmap-step__tag">10–15 хв · 3–4 рази/тиждень</span>
+            <h3 class="roadmap-step__title">Читайте тексти свого рівня</h3>
+            <p class="roadmap-step__text">Обирайте тексти, де 90% слів зрозумілі — це оптимально для природного засвоєння нової лексики й граматики в контексті.</p>
+            <div class="roadmap-step__footer">
+              <a href="/reading" class="roadmap-step__link">До читання →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap-step roadmap-step--right">
+          <span class="roadmap-step__dot">5</span>
+          <div class="roadmap-step__card">
+            <span class="roadmap-step__tag">10–15 хв · 2–3 рази/тиждень</span>
+            <h3 class="roadmap-step__title">Слухайте англійську на слух</h3>
+            <p class="roadmap-step__text">Аудіювання розвивається окремо від читання. Починайте з повільного темпу й транскриптом, поступово прибираючи підказки.</p>
+            <div class="roadmap-step__footer">
+              <a href="/listening" class="roadmap-step__link">До аудіювання →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap-step roadmap-step--left">
+          <span class="roadmap-step__dot">6</span>
+          <div class="roadmap-step__card">
+            <span class="roadmap-step__tag">10 хв · щодня</span>
+            <h3 class="roadmap-step__title">Закріплюйте вправами</h3>
+            <p class="roadmap-step__text">Multiple choice, fill in the blanks, matching — обирайте фільтр за темою й рівнем, щоб відпрацювати саме те, що вивчили сьогодні.</p>
+            <div class="roadmap-step__footer">
+              <a href="/exercises" class="roadmap-step__link">До вправ →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap-step roadmap-step--right">
+          <span class="roadmap-step__dot">7</span>
+          <div class="roadmap-step__card">
+            <span class="roadmap-step__tag">15 хв · раз на 2 тижні</span>
+            <h3 class="roadmap-step__title">Перевіряйте прогрес тестами</h3>
+            <p class="roadmap-step__text">Проходьте тематичні або змішані тести, щоб побачити, що вже засвоєно міцно, а що варто повторити перед переходом далі.</p>
+            <div class="roadmap-step__footer">
+              <a href="/tests" class="roadmap-step__link">До тестів →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap-step roadmap-step--left">
+          <span class="roadmap-step__dot">8</span>
+          <div class="roadmap-step__card">
+            <span class="roadmap-step__tag">2 хв · щотижня</span>
+            <h3 class="roadmap-step__title">Слідкуйте за прогресом і повторюйте</h3>
+            <p class="roadmap-step__text">Раз на тиждень перегляньте дашборд прогресу: де просідає результат — туди поверніться на повторення, перш ніж рухатись далі.</p>
+            <div class="roadmap-step__footer">
+              <a href="/progress" class="roadmap-step__link">До прогресу →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       RECOMMENDED WEEKLY RHYTHM
+  ========================================================= -->
+  <section class="roadmap-week">
+    <div class="container">
+      <div class="roadmap-week__head">
+        <span class="section-eyebrow">Ритм</span>
+        <h2 class="roadmap-week__title">Орієнтовний тиждень навчання</h2>
+        <p class="roadmap-week__text">Близько 30–40 хвилин на день — цього достатньо, щоб прогрес був відчутним, а навчання не перетворилось на виснаження.</p>
+      </div>
+
+      <div class="roadmap-week__grid">
+        <div class="roadmap-day">
+          <span class="roadmap-day__label">Пн</span>
+          <span class="roadmap-day__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 19V5a2 2 0 0 1 2-2h12a1 1 0 0 1 1 1v14M4 19a2 2 0 0 0 2 2h13M4 19h13" stroke="currentColor" stroke-width="1.7"/></svg></span>
+          <span class="roadmap-day__title">Grammar</span>
+          <span class="roadmap-day__time">20 хв</span>
+        </div>
+        <div class="roadmap-day">
+          <span class="roadmap-day__label">Вт</span>
+          <span class="roadmap-day__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+          <span class="roadmap-day__title">Vocabulary</span>
+          <span class="roadmap-day__time">15 хв</span>
+        </div>
+        <div class="roadmap-day">
+          <span class="roadmap-day__label">Ср</span>
+          <span class="roadmap-day__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/></svg></span>
+          <span class="roadmap-day__title">Exercises</span>
+          <span class="roadmap-day__time">15 хв</span>
+        </div>
+        <div class="roadmap-day">
+          <span class="roadmap-day__label">Чт</span>
+          <span class="roadmap-day__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 4h9l3 3v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.7"/></svg></span>
+          <span class="roadmap-day__title">Reading</span>
+          <span class="roadmap-day__time">15 хв</span>
+        </div>
+        <div class="roadmap-day">
+          <span class="roadmap-day__label">Пт</span>
+          <span class="roadmap-day__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 14v-3a8 8 0 0 1 16 0v3" stroke="currentColor" stroke-width="1.7"/><rect x="2" y="14" width="5" height="6" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="17" y="14" width="5" height="6" rx="1.5" stroke="currentColor" stroke-width="1.7"/></svg></span>
+          <span class="roadmap-day__title">Listening</span>
+          <span class="roadmap-day__time">15 хв</span>
+        </div>
+        <div class="roadmap-day">
+          <span class="roadmap-day__label">Сб</span>
+          <span class="roadmap-day__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.6 5.6L21 9.3l-4.5 4.1 1.2 6.2L12 16.9l-5.7 2.7 1.2-6.2L3 9.3l6.4-.7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+          <span class="roadmap-day__title">Mini test</span>
+          <span class="roadmap-day__time">15 хв</span>
+        </div>
+        <div class="roadmap-day roadmap-day--rest">
+          <span class="roadmap-day__label">Нд</span>
+          <span class="roadmap-day__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <span class="roadmap-day__title">Відпочинок</span>
+          <span class="roadmap-day__time">або огляд прогресу</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TIPS: не покинути навчання
+  ========================================================= -->
+  <section class="roadmap-tips">
+    <div class="container">
+      <div class="roadmap-tips__head">
+        <span class="section-eyebrow">Поради</span>
+        <h2 class="roadmap-tips__title">Щоб не покинути навчання на середині</h2>
+        <p class="roadmap-tips__text">Три прості звички, які роблять різницю між тими, хто вивчив мову, і тими, хто почав, але покинув.</p>
+      </div>
+      <div class="roadmap-tips__grid">
+        <div class="roadmap-tip">
+          <span class="roadmap-tip__number">01</span>
+          <h3 class="roadmap-tip__title">Краще менше, але щодня</h3>
+          <p class="roadmap-tip__text">15 хвилин щодня дають кращий результат, ніж 3 години раз на тиждень. Регулярність важливіша за тривалість.</p>
+        </div>
+        <div class="roadmap-tip">
+          <span class="roadmap-tip__number">02</span>
+          <h3 class="roadmap-tip__title">Не переходьте далі без практики</h3>
+          <p class="roadmap-tip__text">Прочитали тему граматики — одразу зробіть вправу. Пасивне читання теорії забувається за лічені дні.</p>
+        </div>
+        <div class="roadmap-tip">
+          <span class="roadmap-tip__number">03</span>
+          <h3 class="roadmap-tip__title">Повертайтесь до старого</h3>
+          <p class="roadmap-tip__text">Раз на два тижні перегляньте теми, які вивчали місяць тому. Повторення — це те, що переводить знання в довготривалу пам'ять.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CTA BANNER
+  ========================================================= -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__inner">
+        <div>
+          <h2 class="cta-banner__title">Готові почати перший крок?</h2>
+          <p class="cta-banner__text">Пройдіть Level Test — і рухайтесь за роадмапом у зручному для себе темпі.</p>
+        </div>
+        <div class="cta-banner__actions">
+          <a href="/tests" class="btn btn--primary">Пройти тест</a>
+          <a href="/exercises" class="btn btn--ghost">Почати навчання</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__brand-logo">EN<span>GUA</span></div>
+        <p class="footer__brand-text">Платформа для самостійного вивчення англійської мови — від A1 до C2.</p>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Навчання</div>
+        <ul class="footer__col-list">
+          <li><a href="/grammar" class="footer__col-link">Граматика</a></li>
+          <li><a href="/vocabulary" class="footer__col-link">Лексика</a></li>
+          <li><a href="/reading" class="footer__col-link">Читання</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Практика</div>
+        <ul class="footer__col-list">
+          <li><a href="/exercises" class="footer__col-link">Вправи</a></li>
+          <li><a href="/tests" class="footer__col-link">Тести</a></li>
+          <li><a href="/progress" class="footer__col-link">Прогрес</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Про проєкт</div>
+        <ul class="footer__col-list">
+          <li><a href="/about" class="footer__col-link">Про нас</a></li>
+          <li><a href="/contacts" class="footer__col-link">Контакти</a></li>
+          <li><a href="/privacy" class="footer__col-link">Політика конфіденційності</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copyright">© 2026 ENGUA. Усі права захищені.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var burger = document.querySelector('[data-burger]');
+  var nav = document.querySelector('[data-nav]');
+  function closeNav(){
+    burger.classList.remove('header__burger--open');
+    nav.classList.remove('header__nav--open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  burger.addEventListener('click', function(){
+    var isOpen = nav.classList.toggle('header__nav--open');
+    burger.classList.toggle('header__burger--open', isOpen);
+    burger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  nav.querySelectorAll('.header__nav-link').forEach(function(link){
+    link.addEventListener('click', closeNav);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && nav.classList.contains('header__nav--open')){ closeNav(); }
+  });
+
+  var themeToggle = document.querySelector('[data-theme-toggle]');
+  var body = document.body;
+  var saved = null;
+  try { saved = window.localStorage.getItem('engua-theme'); } catch(e){}
+  if(saved){ body.setAttribute('data-theme', saved); }
+  themeToggle.addEventListener('click', function(){
+    var next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    body.setAttribute('data-theme', next);
+    try { window.localStorage.setItem('engua-theme', next); } catch(e){}
+  });
+})();
+</script>
+
+</body>
+</html>
