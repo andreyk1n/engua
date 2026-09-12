@@ -1,0 +1,523 @@
+.worksheet-hero {
+  padding: 44px 0 24px;
+
+  &__title {
+    font-size: clamp(1.9rem, 4vw, 2.5rem);
+    margin-bottom: 12px;
+  }
+
+  &__lead {
+    color: var(--ink-soft);
+    font-size: 15px;
+    max-width: 70ch;
+    margin-bottom: 26px;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+    margin-bottom: 26px;
+  }
+
+  &__meta-item {
+    padding: 0 24px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  &__meta-number {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  &__meta-label {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+  }
+}
+
+/* --- fields to fill in by hand: name / date / level --- */
+.worksheet-fields {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: 20px 22px;
+}
+
+.worksheet-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  &__label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+
+  &__line {
+    height: 1px;
+    background: var(--border);
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 700px) {
+  .worksheet-hero__meta {
+    flex-wrap: wrap;
+    row-gap: 14px;
+  }
+
+  .worksheet-hero__meta-item {
+    width: 50%;
+    border-right: none;
+    padding: 0 0 10px;
+  }
+
+  .worksheet-fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   sections/_worksheet-instructions.scss
+========================================================= */
+.worksheet-instructions {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-m);
+  padding: 18px 22px;
+  margin: 24px 0 8px;
+
+  &__icon {
+    color: var(--accent-dark);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  &__text {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+
+    strong {
+      color: var(--ink);
+    }
+  }
+}
+
+[data-theme="dark"] .worksheet-instructions__icon {
+  color: var(--accent);
+}
+
+/* =========================================================
+   sections/_worksheet-body.scss (питання)
+========================================================= */
+.worksheet-body {
+  padding: 16px 0 60px;
+}
+
+.worksheet-section {
+  padding-top: 44px;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  + .worksheet-section {
+    border-top: 2px dashed var(--border);
+  }
+
+  &__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  &__title {
+    font-size: 21px;
+  }
+
+  &__range {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  &__subtitle {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+}
+
+.worksheet-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.worksheet-question {
+  &__text {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  &__number {
+    font-family: var(--font-mono);
+    color: var(--accent-dark);
+    font-weight: 600;
+  }
+}
+
+[data-theme="dark"] .worksheet-question__number {
+  color: var(--accent);
+}
+
+.worksheet-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 20px;
+  padding-left: 24px;
+}
+
+.worksheet-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+
+  &__mark {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid var(--ink-soft);
+    flex-shrink: 0;
+  }
+
+  &__letter {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+
+  &__text {
+    color: var(--ink);
+  }
+}
+
+@media (max-width: 575px) {
+  .worksheet-options {
+    grid-template-columns: 1fr;
+    padding-left: 16px;
+  }
+}
+
+/* --- reading passages --- */
+.worksheet-passage {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-m);
+  padding: 22px 26px;
+  margin-bottom: 22px;
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__level {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: var(--accent-warm);
+    color: #402c07;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+
+  &__title {
+    font-size: 17px;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+}
+
+/* =========================================================
+   sections/_worksheet-scale.scss (шкала: к-сть відповідей → рівень)
+========================================================= */
+.worksheet-scale {
+  padding: 10px 0 50px;
+
+  &__head {
+    margin-bottom: 22px;
+  }
+
+  &__title {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  &__subtitle {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    overflow: hidden;
+
+    thead th {
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-soft);
+      background: var(--paper);
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tbody td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      vertical-align: middle;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: var(--surface);
+    }
+  }
+
+  &__range {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  &__level {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 12.5px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+
+    &--a1 {
+      background: #e3e8e5;
+      color: #4b5c58;
+    }
+
+    &--a2 {
+      background: #dcecdf;
+      color: #2f6f5e;
+    }
+
+    &--b1 {
+      background: color-mix(in srgb, var(--accent) 18%, var(--surface));
+      color: var(--accent-dark);
+    }
+
+    &--b2 {
+      background: color-mix(in srgb, var(--accent) 30%, var(--surface));
+      color: var(--accent-dark);
+    }
+
+    &--c1 {
+      background: color-mix(in srgb, var(--accent-warm) 30%, var(--surface));
+      color: var(--accent-warm-dark);
+    }
+
+    &--c2 {
+      background: var(--accent-warm);
+      color: #402c07;
+    }
+  }
+
+  &__desc {
+    color: var(--ink-soft);
+    font-size: 13px;
+  }
+}
+
+[data-theme="dark"] .worksheet-scale__level--a1 {
+  background: #25302c;
+  color: var(--ink-soft);
+}
+
+[data-theme="dark"] .worksheet-scale__level--a2 {
+  background: #1e332a;
+  color: var(--accent);
+}
+
+[data-theme="dark"] .worksheet-scale__level--b1,
+[data-theme="dark"] .worksheet-scale__level--b2 {
+  background: color-mix(in srgb, var(--accent) 26%, var(--surface));
+  color: var(--accent);
+}
+
+[data-theme="dark"] .worksheet-scale__level--c1,
+[data-theme="dark"] .worksheet-scale__level--c2 {
+  background: color-mix(in srgb, var(--accent-warm) 26%, var(--surface));
+  color: var(--accent-warm);
+}
+
+@media (max-width: 575px) {
+  .worksheet-scale__table {
+    thead {
+      display: none;
+    }
+
+    &, tbody, tr, td {
+      display: block;
+      width: 100%;
+    }
+
+    tr {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 3px 0;
+      border: none;
+    }
+  }
+}
+
+/* =========================================================
+   sections/_worksheet-answers.scss (кнопка + ключ відповідей)
+========================================================= */
+.worksheet-answers {
+  padding: 20px 0 90px;
+  text-align: center;
+
+  &__hint {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
+}
+
+.worksheet-key {
+  max-width: 900px;
+  margin: 36px auto 0;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-card);
+  padding: 32px;
+  display: none;
+
+  &--visible {
+    display: block;
+  }
+
+  &__title {
+    font-size: 19px;
+    margin-bottom: 4px;
+  }
+
+  &__subtitle {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 8px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    padding: 8px 4px;
+  }
+
+  &__num {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--ink-soft);
+  }
+
+  &__letter {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent-dark);
+  }
+}
+
+[data-theme="dark"] .worksheet-key__letter {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .worksheet-key__grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .worksheet-key__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .worksheet-key {
+    padding: 22px;
+  }
+}
