@@ -2084,19 +2084,39 @@
 
 </div>
 
-
 <script>
-(function(){
-  var showBtn = document.querySelector('[data-show-answers]');
-  var key = document.querySelector('[data-answer-key]');
-  showBtn.addEventListener('click', function(){
-    var isVisible = key.classList.toggle('worksheet-key--visible');
-    showBtn.textContent = isVisible ? 'Сховати відповіді' : 'Показати відповіді';
-    if(isVisible){ key.scrollIntoView({ behavior:'smooth', block:'start' }); }
-  });
+(function () {
+  var filter = document.querySelector('[data-filter]');
+  var list = document.querySelector('[data-filter-list]');
 
-  var printBtn = document.querySelector('[data-print-btn]');
-  if(printBtn){ printBtn.addEventListener('click', function(){ window.print(); }); }
+  if (!filter || !list) {
+    return;
+  }
+
+  var chips = filter.querySelectorAll('[data-filter-chip]');
+  var cards = list.querySelectorAll('[data-category]');
+
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var value = chip.getAttribute('data-filter-chip');
+
+      chips.forEach(function (item) {
+        item.classList.remove('content-filter__chip--active');
+      });
+
+      chip.classList.add('content-filter__chip--active');
+
+      cards.forEach(function (card) {
+        var category = card.getAttribute('data-category');
+
+        if (value === 'all' || category === value) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 })();
 </script>
 
