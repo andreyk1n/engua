@@ -1,0 +1,27 @@
+<section class="content-hero">
+  <div class="container">
+    <span class="section-eyebrow">@@eyebrow</span>
+
+    <h1 class="content-hero__title">
+      @@title
+    </h1>
+
+    <p class="content-hero__lead">
+      @@lead
+    </p>
+
+    <div class="content-hero__overview">
+      @@for (var i = 0; i < stats.length; i++) {
+        <div class="content-hero__stat">
+          <span class="content-hero__stat-number">
+            `+stats[i].number+`
+          </span>
+
+          <span class="content-hero__stat-label">
+            `+stats[i].label+`
+          </span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

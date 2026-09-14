@@ -1,0 +1,21 @@
+<section class="content-filter">
+  <div class="container">
+    <div class="content-filter__list" data-filter>
+
+      @@for (var i = 0; i < filters.length; i++) {
+        <button
+          type="button"
+          class="content-filter__chip `+ (filters[i].active ? 'content-filter__chip--active' : '') + `"
+          data-filter-chip="`+filters[i].value+`"
+        >
+          `+filters[i].label+`
+
+          <span class="content-filter__count">
+            `+filters[i].count+`
+          </span>
+        </button>
+      }
+
+    </div>
+  </div>
+</section>

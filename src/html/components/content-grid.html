@@ -1,0 +1,71 @@
+<section class="content-grid">
+  <div class="container">
+    <div class="content-grid__list" data-filter-list>
+
+      @@for (var i = 0; i < topics.length; i++) {
+        <article
+          class="content-card"
+          data-category="`+topics[i].category+`"
+        >
+          <div class="content-card__top">
+            <span class="content-card__number">
+              `+topics[i].number+`
+            </span>
+
+            <span class="content-card__level">
+              `+topics[i].level+`
+            </span>
+          </div>
+
+          <h3 class="content-card__title">
+            `+topics[i].title+`
+          </h3>
+
+          <p class="content-card__desc">
+            `+topics[i].description+`
+          </p>
+
+          <div class="content-card__bottom">
+            <span class="content-card__group-tag">
+              `+topics[i].group+`
+            </span>
+          </div>
+
+          <div class="content-card__progress">
+            <span class="content-card__progress-track">
+              <span
+                class="content-card__progress-fill"
+                data-progress="`+topics[i].progress+`"
+              ></span>
+            </span>
+
+            <span class="content-card__progress-label">
+              `+topics[i].progressLabel+`
+            </span>
+          </div>
+
+          <a
+            href="`+topics[i].url+`"
+            class="content-card__link"
+          >
+            Вивчати тему
+
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M5 12h14M13 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+          </a>
+        </article>
+      }
+
+    </div>
+  </div>
+</section>
